@@ -12,6 +12,7 @@ import com.epam.shop.command.impl.ShowRentList;
 import com.epam.shop.command.impl.TakeItem;
 
 public class CommandProvider {
+	
 	private static CommandProvider instance = null;
 	private Map<String, Command> list = null;
 	
@@ -38,7 +39,6 @@ public class CommandProvider {
 		if(command == null){
 			throw new CommandNotFoundException();
 		}
-		
 		return  command;
 	}
 	
