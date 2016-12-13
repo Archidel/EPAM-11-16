@@ -22,10 +22,7 @@ public class View {
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		
-		
-		
-		
+
 		/*
 		//регистрация клиента который хочет взять снаряжения в аренду
 		RegisterClientRequest registerReq = new RegisterClientRequest();

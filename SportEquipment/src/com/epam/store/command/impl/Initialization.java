@@ -18,10 +18,11 @@ public class Initialization implements Command {
 		
 		try {
 			initializationService.initDAO();
-			initializationService.initStore();
+			response = initializationService.initStore();
 		} catch (ServiceException e) {
 			throw new CommandException(e);
 		}
+		
 		return response;
 	}
 	
