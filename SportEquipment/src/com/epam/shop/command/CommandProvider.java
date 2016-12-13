@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.epam.shop.command.exception.CommandNotFoundException;
+import com.epam.shop.command.impl.RegisterClient;
 import com.epam.shop.command.impl.ReturnItem;
 import com.epam.shop.command.impl.ShowEquipmentList;
 import com.epam.shop.command.impl.ShowRentList;
@@ -19,6 +20,7 @@ public class CommandProvider {
 		list.put("return_item", new ReturnItem());
 		list.put("show_rent_list", new ShowRentList());
 		list.put("show_equipment_list", new ShowEquipmentList());
+		list.put("register_clinet", new RegisterClient());
 	}
 
 	public static CommandProvider getInstance() {
