@@ -11,10 +11,10 @@ public class View {
 	
 	public static void main(String [] args){
 		Response response = null;
-	
+
 		//инициализация коннекшен пула, инициализация магазина
 		Request initReq = new Request();
-		initReq = init();
+		initReq.setCommand("initialization");
 		
 		try {
 			response = controller.doAction(initReq);
@@ -23,6 +23,10 @@ public class View {
 			e1.printStackTrace();
 		}
 		
+		
+		
+		
+		/*
 		//регистрация клиента который хочет взять снаряжения в аренду
 		RegisterClientRequest registerReq = new RegisterClientRequest();
 		registerReq.setNameClient("Juliy");
@@ -35,13 +39,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-	}
-
-	private static Request init(){
-		Request request = new Request();
-		request.setCommand("initialization");
-		return request;
+*/		
 	}
 	
 }
