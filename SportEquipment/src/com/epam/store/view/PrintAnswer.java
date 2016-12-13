@@ -1,4 +1,4 @@
-package com.epam.store.controller;
+package com.epam.store.view;
 
 import com.epam.store.bean.Response;
 
