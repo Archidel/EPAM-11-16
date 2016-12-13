@@ -1,5 +1,5 @@
 package com.epam.shop.controller;
 
-public class asdasd {
+public class Controller {
 
 }
