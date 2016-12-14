@@ -1,4 +1,4 @@
-package com.epam.store.bean;
+package com.epam.store.bean.entity;
 
 import java.util.HashMap;
 import java.util.Map;

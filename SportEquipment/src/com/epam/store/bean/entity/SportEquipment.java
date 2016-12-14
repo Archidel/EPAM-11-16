@@ -1,4 +1,4 @@
-package com.epam.store.bean;
+package com.epam.store.bean.entity;
 
 public class SportEquipment {
 	

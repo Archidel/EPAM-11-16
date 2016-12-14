@@ -1,7 +1,7 @@
-package com.epam.store.bean.entity;
+package com.epam.store.bean;
 
-import com.epam.store.bean.Request;
-import com.epam.store.bean.SportEquipment;
+import com.epam.store.bean.entity.Request;
+import com.epam.store.bean.entity.SportEquipment;
 
 public class ItemRequest extends Request{
 	private SportEquipment equipment;

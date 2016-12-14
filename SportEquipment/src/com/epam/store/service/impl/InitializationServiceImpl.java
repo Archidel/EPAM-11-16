@@ -3,8 +3,8 @@ package com.epam.store.service.impl;
 import com.epam.store.DAO.InitializationDAO;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.DAO.impl.InitializationDAOImpl;
-import com.epam.store.bean.Response;
-import com.epam.store.bean.Shop;
+import com.epam.store.bean.entity.Response;
+import com.epam.store.bean.entity.Shop;
 import com.epam.store.service.InitializationService;
 import com.epam.store.service.ServiceException;
 
