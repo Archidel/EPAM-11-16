@@ -1,7 +1,7 @@
 package com.epam.store.controller;
 
-import com.epam.store.bean.entity.Request;
-import com.epam.store.bean.entity.Response;
+import com.epam.store.bean.Request;
+import com.epam.store.bean.Response;
 import com.epam.store.command.Command;
 import com.epam.store.command.CommandProvider;
 import com.epam.store.command.exception.CommandException;

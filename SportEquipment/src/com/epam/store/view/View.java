@@ -1,8 +1,8 @@
 package com.epam.store.view;
 
 import com.epam.store.bean.RegisterClientRequest;
-import com.epam.store.bean.entity.Request;
-import com.epam.store.bean.entity.Response;
+import com.epam.store.bean.Request;
+import com.epam.store.bean.Response;
 import com.epam.store.command.exception.CommandNotFoundException;
 import com.epam.store.controller.Controller;
 

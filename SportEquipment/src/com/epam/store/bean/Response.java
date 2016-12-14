@@ -1,4 +1,4 @@
-package com.epam.store.bean.entity;
+package com.epam.store.bean;
 
 public class Response {
 	

@@ -1,6 +1,6 @@
 package com.epam.store.view;
 
-import com.epam.store.bean.entity.Response;
+import com.epam.store.bean.Response;
 
 public class PrintAnswer {
 	public static void Distributor(Response response){

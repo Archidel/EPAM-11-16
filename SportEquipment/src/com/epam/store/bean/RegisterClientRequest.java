@@ -1,7 +1,5 @@
 package com.epam.store.bean;
 
-import com.epam.store.bean.entity.Request;
-
 public class RegisterClientRequest extends Request{
 	private String nameClient;
 	private String surnameCline;

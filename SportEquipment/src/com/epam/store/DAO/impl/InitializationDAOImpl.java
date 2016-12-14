@@ -11,8 +11,8 @@ import com.epam.store.DAO.InitializationDAO;
 import com.epam.store.DAO.SQLCommand;
 import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.DAO.exception.DAOException;
+import com.epam.store.bean.Response;
 import com.epam.store.bean.entity.Category;
-import com.epam.store.bean.entity.Response;
 import com.epam.store.bean.entity.SportEquipment;
 
 public class InitializationDAOImpl implements InitializationDAO {
