@@ -5,7 +5,7 @@ import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.DAO.impl.InitializationDAOImpl;
 import com.epam.store.bean.Response;
 import com.epam.store.service.InitializationService;
-import com.epam.store.service.ServiceException;
+import com.epam.store.service.exception.ServiceException;
 
 public class InitializationServiceImpl implements InitializationService {
 

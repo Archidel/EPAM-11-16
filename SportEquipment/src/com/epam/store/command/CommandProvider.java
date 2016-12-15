@@ -39,6 +39,7 @@ public class CommandProvider {
 		if(command == null){
 			throw new CommandNotFoundException();
 		}
+		
 		return  command;
 	}
 	
