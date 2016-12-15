@@ -18,12 +18,12 @@ public class CommandProvider {
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put("take_item", new TakeItem());
-		list.put("return_item", new ReturnItem());
-		list.put("show_rent_list", new ShowRentList());
-		list.put("show_equipment_list", new ShowEquipmentList());
-		list.put("register_clinet", new RegisterClient());
-		list.put("initialization", new Initialization());
+		list.put(NameCommand.TAKE_ITEM_CMD, new TakeItem());
+		list.put(NameCommand.RETURN_ITEM_CMD, new ReturnItem());
+		list.put(NameCommand.SHOW_RENT_LIST_CMD, new ShowRentList());
+		list.put(NameCommand.SHOW_EQUIPMENT_LIST_CMD, new ShowEquipmentList());
+		list.put(NameCommand.REGISTER_CLIENT_CMD, new RegisterClient());
+		list.put(NameCommand.INITIALIZATION_CMD, new Initialization());
 	}
 
 	public static CommandProvider getInstance() {
