@@ -6,7 +6,7 @@ import com.epam.store.command.Command;
 import com.epam.store.command.exception.CommandException;
 import com.epam.store.service.InitializationService;
 import com.epam.store.service.ServiceException;
-import com.epam.store.service.ServiceFactory;
+import com.epam.store.service.factory.ServiceFactory;
 
 public class Initialization implements Command {
 

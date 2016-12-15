@@ -1,6 +1,5 @@
 package com.epam.store.view;
 
-import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
 import com.epam.store.command.exception.CommandNotFoundException;
@@ -18,7 +17,7 @@ public class View {
 		
 		try {
 			response = controller.doAction(initReq);
-			PrintAnswer.Distributor(response);  // вывод ответа в консоль
+			PrintAnswer.Dispatcher(response);  // вывод ответа в консоль
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
 		}

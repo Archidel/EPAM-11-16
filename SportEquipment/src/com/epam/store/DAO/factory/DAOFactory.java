@@ -1,5 +1,6 @@
-package com.epam.store.DAO;
+package com.epam.store.DAO.factory;
 
+import com.epam.store.DAO.InitializationDAO;
 import com.epam.store.DAO.impl.InitializationDAOImpl;
 
 public class DAOFactory {

@@ -1,5 +1,6 @@
-package com.epam.store.service;
+package com.epam.store.service.factory;
 
+import com.epam.store.service.InitializationService;
 import com.epam.store.service.impl.InitializationServiceImpl;
 
 public class ServiceFactory {
