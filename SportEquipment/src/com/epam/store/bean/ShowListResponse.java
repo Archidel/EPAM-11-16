@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.epam.store.bean.entity.SportEquipment;
 
-public class ShowListRequest extends Request{
+public class ShowListResponse extends Request{
 	private ArrayList<SportEquipment> list;
 
 	public ArrayList<SportEquipment> getList() {

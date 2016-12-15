@@ -4,8 +4,12 @@ import com.epam.store.bean.Response;
 
 public class PrintAnswer {
 	public static void Dispatcher(Response response){
-		System.out.println("Message = " + response.getMessage());
-		System.out.println("Error Message = " + response.getErrorMessage());
-		System.out.println("Error Status = " + response.isStatusError());
+		
+		if(!response.isStatusError()){
+			System.out.println(response.getMessage());
+		}else{
+			System.out.println(response.getErrorMessage());
+		}
+		
 	}
 }

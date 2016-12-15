@@ -24,9 +24,9 @@ public class InitializationDAOImpl implements InitializationDAO {
 		
 		try {
 			connectionPool.init();
-			response.setMessage("database has been initialized");
+			response.setMessage("Database has been initialized");
 		} catch (SQLException e) {
-			response.setErrorMessage("database has been initialized");
+			response.setErrorMessage("Database has been initialized");
 			response.setStatusError(true);
 			e.printStackTrace();
 		}
