@@ -4,7 +4,6 @@ import com.epam.store.DAO.InitializationDAO;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.DAO.impl.InitializationDAOImpl;
 import com.epam.store.bean.Response;
-import com.epam.store.bean.entity.Shop;
 import com.epam.store.service.InitializationService;
 import com.epam.store.service.ServiceException;
 
@@ -23,20 +22,4 @@ public class InitializationServiceImpl implements InitializationService {
 		
 		return response;
 	}
-
-	@Override
-	public Response initStore() {
-		Shop shop = Shop.getInstance();
-
-		Response response = new Response();
-		response.setMessage("Store has bean initialized");
-		
-		
-		
-		//загрузить все данные из бд
-		
-		
-		return response;
-	}
-
 }

@@ -17,12 +17,10 @@ public class Initialization implements Command {
 		InitializationService initializationService = factory.getInitializationService();
 		
 		try {
-			initializationService.initDAO();
-			response = initializationService.initStore();
+			response = initializationService.initDAO();
 		} catch (ServiceException e) {
 			throw new CommandException(e);
-		}
-		
+		}	
 		return response;
 	}
 	
