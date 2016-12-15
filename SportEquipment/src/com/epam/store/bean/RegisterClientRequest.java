@@ -2,7 +2,7 @@ package com.epam.store.bean;
 
 public class RegisterClientRequest extends Request{
 	private String nameClient;
-	private String surnameCline;
+	private String surnameClient;
 	
 	public String getNameClient() {
 		return nameClient;
@@ -10,10 +10,11 @@ public class RegisterClientRequest extends Request{
 	public void setNameClient(String nameClient) {
 		this.nameClient = nameClient;
 	}
-	public String getSurnameCline() {
-		return surnameCline;
+	public String getSurnameClient() {
+		return surnameClient;
 	}
-	public void setSurnameCline(String surnameCline) {
-		this.surnameCline = surnameCline;
+	public void setSurnameClient(String surnameClient) {
+		this.surnameClient = surnameClient;
 	}
+	
 }

@@ -2,16 +2,16 @@ package com.epam.store.bean;
 
 import java.util.ArrayList;
 
-import com.epam.store.bean.entity.SportEquipment;
+import com.epam.store.bean.entity.Equipment;
 
 public class ShowListResponse extends Request{
-	private ArrayList<SportEquipment> list;
+	private ArrayList<Equipment> list;
 
-	public ArrayList<SportEquipment> getList() {
+	public ArrayList<Equipment> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<SportEquipment> list) {
+	public void setList(ArrayList<Equipment> list) {
 		this.list = list;
 	}
 }

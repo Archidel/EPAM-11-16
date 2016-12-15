@@ -1,35 +1,54 @@
 package com.epam.store.bean.entity;
 
-public class SportEquipment {
+import java.io.Serializable;
+
+public class Equipment implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
-	private Category category;
+	private String category;
 	private String title;
 	private int price;
 	private int id;
+	private boolean status;
 	
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	
+	public void setCategory(String category) {
 		this.category = category;
 	}
+	
 	public String getTitle() {
 		return title;
 	}
+	
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public int getPrice() {
 		return price;
 	}
+	
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
 	
+	public boolean isStatus() {
+		return status;
+	}
+	
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+		
 }

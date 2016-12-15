@@ -12,8 +12,7 @@ import com.epam.store.DAO.SQLCommand;
 import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.bean.Response;
-import com.epam.store.bean.entity.Category;
-import com.epam.store.bean.entity.SportEquipment;
+import com.epam.store.bean.entity.Equipment;
 
 public class InitializationDAOImpl implements InitializationDAO {
 
@@ -34,11 +33,11 @@ public class InitializationDAOImpl implements InitializationDAO {
 	}
 
 	@Override
-	public ArrayList<SportEquipment> initStore() throws DAOException {
+	public ArrayList<Equipment> initStore() throws DAOException {
 		ConnectionPool connectionPool = ConnectionPool.getInstance();
 		Connection con = null;
-		ArrayList<SportEquipment> list = null;
-		SportEquipment equipment = null;
+		ArrayList<Equipment> list = null;
+		Equipment equipment = null;
 		try {
 			con = connectionPool.take();
 		} catch (InterruptedException e) {
@@ -48,13 +47,12 @@ public class InitializationDAOImpl implements InitializationDAO {
 		try {
 			Statement statement = con.createStatement();
 			ResultSet resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_SPORTEQUIPMENT);
-			list = new ArrayList<SportEquipment>();
+			list = new ArrayList<Equipment>();
 			
 			while(resultSet.next()){
-				equipment = new SportEquipment();
+				equipment = new Equipment();
 				equipment.setId(resultSet.getInt(1));
-				Category category = new Category(resultSet.getString(2));
-				equipment.setCategory(category);
+				equipment.setCategory(resultSet.getString(2));
 				equipment.setTitle(resultSet.getString(3));
 				int price  = Integer.parseInt(resultSet.getString(4));
 				equipment.setPrice(price);
