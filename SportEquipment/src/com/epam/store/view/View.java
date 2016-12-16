@@ -1,5 +1,6 @@
 package com.epam.store.view;
 
+import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
 import com.epam.store.command.exception.CommandNotFoundException;
@@ -21,21 +22,23 @@ public class View {
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
 		}
-
-		/*
+		
 		//регистрация клиента который хочет взять снаряжения в аренду
-		RegisterClientRequest registerReq = new RegisterClientRequest();
-		registerReq.setNameClient("Juliy");
-		registerReq.setSurnameCline("CezaR");
-		registerReq.setCommand("register_clinet");
+		RegisterClientRequest registerClient = new RegisterClientRequest();
+		registerClient.setCommand("register_client");
+		registerClient.setName("Vasya");
+		registerClient.setSurname("Pupkin");
 		
 		try {
-			response = controller.doAction(registerReq);
-			PrintAnswer.Distributor(response);	// вывод ответа в консоль
+			response = controller.doAction(registerClient);
+			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-*/		
+			
+		
+		
+		
 	}
 	
 }

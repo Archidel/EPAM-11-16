@@ -1,5 +1,9 @@
 package com.epam.store.service;
 
-public interface StoreService {
+import com.epam.store.bean.Response;
+import com.epam.store.bean.entity.Client;
+import com.epam.store.service.exception.ServiceException;
 
+public interface StoreService {
+	Response AddNewClient(Client client) throws ServiceException;
 }

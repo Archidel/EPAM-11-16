@@ -9,6 +9,7 @@ public class Equipment implements Serializable{
 	private String title;
 	private int price;
 	private int id;
+	private int quantity;
 	private boolean status;
 	
 	public String getCategory() {
@@ -49,6 +50,14 @@ public class Equipment implements Serializable{
 	
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 		
 }

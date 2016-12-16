@@ -1,20 +1,24 @@
 package com.epam.store.bean;
 
 public class RegisterClientRequest extends Request{
-	private String nameClient;
-	private String surnameClient;
+	private String name;
+	private String surname;
 	
-	public String getNameClient() {
-		return nameClient;
+	public String getName() {
+		return name;
 	}
-	public void setNameClient(String nameClient) {
-		this.nameClient = nameClient;
+	
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getSurnameClient() {
-		return surnameClient;
+	
+	public String getSurname() {
+		return surname;
 	}
-	public void setSurnameClient(String surnameClient) {
-		this.surnameClient = surnameClient;
+	
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
+	
 	
 }
