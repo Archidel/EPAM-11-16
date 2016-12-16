@@ -9,7 +9,7 @@ public class PrintAnswer {
 		if(!response.isStatusError()){
 			System.out.println(response.getMessage());
 		}else{
-			System.out.println(response.getErrorMessage());
+			System.err.println(response.getErrorMessage());
 		}
 		
 		ListResponse listResponse = null;
