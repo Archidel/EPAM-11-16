@@ -2,12 +2,16 @@ package com.epam.store.DAO.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.epam.store.DAO.SQLCommand;
 import com.epam.store.DAO.StoreDAO;
 import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.DAO.exception.DAOException;
+import com.epam.store.bean.ListResponse;
 import com.epam.store.bean.Response;
 import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
@@ -80,6 +84,61 @@ public class StoreDAOImpl implements StoreDAO {
 			throw new DAOException(e);
 		}
 		return response;
+	}
+
+	@Override
+	public Response GetEquipmentList() throws DAOException {
+		ListResponse listResponse = null;
+		ArrayList<Equipment> list = new ArrayList<Equipment>();
+		
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		
+		try {
+			con = pool.take();
+			Statement statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
+			
+			
+			//Надо бы добавить в таблицу Equipment базы данные поле status - удалено ли снарядение или нет.
+			//В замен смотрим количество снаряжения в наличии если 0 то не добавлять этот элемент в список.
+			while(resultSet.next()){
+				if(resultSet.getInt(5) != 0){
+					Equipment equipment = new Equipment();
+					equipment.setId(resultSet.getInt(1));
+					equipment.setCategory(resultSet.getString(2));
+					equipment.setTitle(resultSet.getString(3));
+					equipment.setPrice(resultSet.getInt(4));
+					equipment.setQuantity(resultSet.getInt(5));
+					
+					list.add(equipment);
+				}
+			}
+			
+			listResponse = new ListResponse();
+			listResponse.setList(list);
+			listResponse.setMessage("Equipment list was added");
+			
+			pool.free(con);
+		} catch (InterruptedException e) {
+			listResponse = new ListResponse();
+			listResponse.setErrorMessage("Equipment list was not added");
+			listResponse.setStatusError(true);
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			listResponse = new ListResponse();
+			listResponse.setErrorMessage("Error database query");
+			listResponse.setStatusError(true);
+			throw new DAOException(e);
+		}
+	
+		return listResponse;
+	}
+
+	@Override
+	public Response GetRentList() throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

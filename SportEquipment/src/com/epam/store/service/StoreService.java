@@ -8,4 +8,6 @@ import com.epam.store.service.exception.ServiceException;
 public interface StoreService {
 	Response AddNewClient(Client client) throws ServiceException;
 	Response AddNewEquipment(Equipment equipment) throws ServiceException;
+	Response GetEquipmentList() throws ServiceException;
+	Response GetRentList() throws ServiceException;
 }

@@ -74,4 +74,29 @@ public class StoreServiceImpl implements StoreService {
 		return response;
 	}
 
+	@Override
+	public Response GetEquipmentList() throws ServiceException {
+		Response response = null;
+		
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		StoreDAO storeDAO = daoFactory.getStoreDAO();
+		
+		try {
+			response = storeDAO.GetEquipmentList();
+		} catch (DAOException e) {
+			response = new Response();
+			response.setErrorMessage("Equipment list can not be returned");
+			response.setStatusError(true);
+			throw new ServiceException(e);
+		}
+		
+		return response;
+	}
+
+	@Override
+	public Response GetRentList() throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

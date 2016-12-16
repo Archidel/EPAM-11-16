@@ -14,7 +14,7 @@ public class View {
 	public static void main(String [] args){
 		Response response = null;
 
-		//инициализация коннекшен пула, инициализация магазина
+		//инициализация коннекшен пула - инициализация магазина
 		Request initReq = new Request();
 		initReq.setCommand("initialization");
 		
@@ -27,10 +27,10 @@ public class View {
 		
 		//Добавить товары в магазин
 		Equipment equipment = new Equipment();
-		equipment.setTitle("Санки");
+		equipment.setTitle("Парашют");
 		equipment.setCategory("Sport equipment");
-		equipment.setPrice(15);
-		equipment.setQuantity(4);
+		equipment.setPrice(5);
+		equipment.setQuantity(0);
 		
 		EquipmentRequest equipmentRequest = new EquipmentRequest();
 		equipmentRequest.setCommand("add_new_equipment");
@@ -46,8 +46,8 @@ public class View {
 		//регистрация клиента который хочет взять снаряжения в аренду
 		RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("Vasya");
-		registerClient.setSurname("Pupkin");
+		registerClient.setName("Alex");
+		registerClient.setSurname("Zayac");
 		
 		try {
 			response = controller.doAction(registerClient);
@@ -56,6 +56,21 @@ public class View {
 			e.printStackTrace();
 		}
 				
+		//Показать список всех товараов что есть в наличии
+		Request getEquipmentList = new Request();
+		getEquipmentList.setCommand("get_equipment_list");
+		
+		try {
+			response = controller.doAction(getEquipmentList);
+			PrintAnswer.Dispatcher(response);
+		} catch (CommandNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		//Взять 3 предмета в аренду а потом еще затребовать 4й.
+		
+		
+		
 	}
 }
 

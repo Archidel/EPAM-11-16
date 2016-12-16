@@ -10,7 +10,6 @@ public class Equipment implements Serializable{
 	private int price;
 	private int id;
 	private int quantity;
-	private boolean status;
 	
 	public String getCategory() {
 		return category;
@@ -43,14 +42,6 @@ public class Equipment implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public boolean isStatus() {
-		return status;
-	}
-	
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 
 	public int getQuantity() {
 		return quantity;
@@ -59,5 +50,51 @@ public class Equipment implements Serializable{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-		
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + id;
+		result = prime * result + price;
+		result = prime * result + quantity;
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() == obj.getClass())
+			return true;
+		Equipment equip = (Equipment) obj;
+		if (category == null) {
+			if (equip.category != null)
+				return false;
+		} else if (!category.equals(equip.category))
+			return false;
+		if (id != equip.id)
+			return false;
+		if (price != equip.price)
+			return false;
+		if (quantity != equip.quantity)
+			return false;
+		if (title == null) {
+			if (equip.title != null)
+				return false;
+		} else if (!title.equals(equip.title))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Equipment [category=" + category + ", title=" + title + ", price=" + price + ", id=" + id
+				+ ", quantity=" + quantity + "]";
+	}
+
 }
