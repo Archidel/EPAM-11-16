@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.epam.store.command.exception.CommandNotFoundException;
+import com.epam.store.command.impl.AddNewEquipment;
 import com.epam.store.command.impl.Initialization;
 import com.epam.store.command.impl.RegisterClient;
 import com.epam.store.command.impl.ReturnItem;
 import com.epam.store.command.impl.ShowEquipmentList;
 import com.epam.store.command.impl.ShowRentList;
-import com.epam.store.command.impl.TakeItem;
+import com.epam.store.command.impl.TakeEquipment;
 
 public class CommandProvider {
 	
@@ -18,12 +19,14 @@ public class CommandProvider {
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put(NameCommand.TAKE_ITEM_CMD, new TakeItem());
+		list.put(NameCommand.TAKE_ITEM_CMD, new TakeEquipment());
 		list.put(NameCommand.RETURN_ITEM_CMD, new ReturnItem());
 		list.put(NameCommand.SHOW_RENT_LIST_CMD, new ShowRentList());
 		list.put(NameCommand.SHOW_EQUIPMENT_LIST_CMD, new ShowEquipmentList());
 		list.put(NameCommand.REGISTER_CLIENT_CMD, new RegisterClient());
 		list.put(NameCommand.INITIALIZATION_CMD, new Initialization());
+		list.put(NameCommand.ADD_NEW_EQUIPMENT_CMD, new AddNewEquipment());
+
 	}
 
 	public static CommandProvider getInstance() {

@@ -1,8 +1,10 @@
 package com.epam.store.view;
 
+import com.epam.store.bean.EquipmentRequest;
 import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
+import com.epam.store.bean.entity.Equipment;
 import com.epam.store.command.exception.CommandNotFoundException;
 import com.epam.store.controller.Controller;
 
@@ -19,6 +21,24 @@ public class View {
 		try {
 			response = controller.doAction(initReq);
 			PrintAnswer.Dispatcher(response);  // вывод ответа в консоль
+		} catch (CommandNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		//Добавить товары в магазин
+		Equipment equipment = new Equipment();
+		equipment.setTitle("Санки");
+		equipment.setCategory("Sport equipment");
+		equipment.setPrice(15);
+		equipment.setQuantity(4);
+		
+		EquipmentRequest equipmentRequest = new EquipmentRequest();
+		equipmentRequest.setCommand("add_new_equipment");
+		equipmentRequest.setEquipment(equipment);
+		
+		try {
+			response = controller.doAction(equipmentRequest);
+			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
 		}
@@ -35,12 +55,8 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-			
-		
-		
-		
+				
 	}
-	
 }
 
 /*

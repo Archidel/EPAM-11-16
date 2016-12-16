@@ -4,7 +4,7 @@ import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
 import com.epam.store.command.Command;
 
-public class TakeItem implements Command {
+public class TakeEquipment implements Command {
 
 	@Override
 	public Response execute(Request request) {
