@@ -12,7 +12,6 @@ public class PrintAnswer {
 			System.out.println(response.getErrorMessage());
 		}
 		
-		
 		ListResponse listResponse = null;
 		if(response instanceof ListResponse){
 			listResponse = (ListResponse) response;
@@ -21,8 +20,6 @@ public class PrintAnswer {
 				System.out.println(listResponse.getElementListByIndex(i).toString());
 			}
 		}
-		
-		
 		
 	}
 }
