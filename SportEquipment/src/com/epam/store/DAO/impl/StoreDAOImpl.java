@@ -20,68 +20,85 @@ public class StoreDAOImpl implements StoreDAO {
 
 	@Override
 	public Response AddNewClient(Client client) throws DAOException {
-		Response response = null;
+		Response response = new Response();
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = null;
+		PreparedStatement preparedStatement = null;
 		
 		try {
 			con = pool.take();
 			
-			PreparedStatement preparedStatement = con.prepareStatement(SQLCommand.INSERT_CLIENT);
+			preparedStatement = con.prepareStatement(SQLCommand.INSERT_CLIENT);
 			preparedStatement.setString(1, client.getName());
 			preparedStatement.setString(2, client.getSurname());
 			preparedStatement.executeUpdate();
 	
-			response = new Response();
 			response.setMessage("Client was added in register");			
 			
-			pool.free(con);
 		} catch (InterruptedException e) {
-			response = new Response();
 			response.setErrorMessage("Trying to add a client failed");
 			response.setStatusError(true);
 			throw new DAOException(e);
 		} catch (SQLException e) {
-			response = new Response();
 			response.setErrorMessage("Error database query");
 			response.setStatusError(true);
 			throw new DAOException(e);
+		}finally{
+			close(pool, con, null, preparedStatement, null);
 		}
 		return response;
 	}
 
 	@Override
 	public Response AddNewEquipment(Equipment equipment) throws DAOException {
-		Response response = null;
+		Response response = new Response();
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = null;
-		
+		ResultSet resultSet = null;
+		Statement statement = null;
+		PreparedStatement preparedStatement = null;
+
 		try {
 			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_TITLE_FROM_EQUIPMENT);
 		
-			PreparedStatement preparedStatement = con.prepareStatement(SQLCommand.INSERT_EQUIPMENT);
-			preparedStatement.setString(1, equipment.getCategory());
-			preparedStatement.setString(2, equipment.getTitle());
-			preparedStatement.setInt(3, equipment.getPrice());
-			preparedStatement.setInt(4, equipment.getQuantity());
-			preparedStatement.executeUpdate();
+			//	Провека на существование такого снаряжения в базе данных. Если есть то записываем его id.
+			int idExistingEquipment = 0;
 			
-			response = new Response();
+			while(resultSet.next()){
+				if(resultSet.getString(2).equalsIgnoreCase(equipment.getTitle())){
+					idExistingEquipment = resultSet.getInt(1);
+				}
+			}
+			
+			//В зависимости от значения мы провидит операции дабвления или рбновления данных
+			if(idExistingEquipment != 0){
+				preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_FROM_EQUIPMENT);
+				preparedStatement.setInt(1, equipment.getQuantity());
+				preparedStatement.setInt(2, idExistingEquipment);
+			}else{
+				preparedStatement = con.prepareStatement(SQLCommand.INSERT_EQUIPMENT);
+				preparedStatement.setString(1, equipment.getCategory());
+				preparedStatement.setString(2, equipment.getTitle());
+				preparedStatement.setInt(3, equipment.getPrice());
+				preparedStatement.setInt(4, equipment.getQuantity());
+			}
+			preparedStatement.executeUpdate();
 			response.setMessage("Equipment was added in store");
 			
-			pool.free(con);
 		} catch (InterruptedException e) {
-			response = new Response();
 			response.setMessage("Trying to add a equipment failed");
 			response.setStatusError(true);
 			throw new DAOException(e);
 		} catch (SQLException e) {
-			response = new Response();
 			response.setErrorMessage("Error database query");
 			response.setStatusError(true);
 			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, preparedStatement, resultSet);
 		}
 		return response;
 	}
@@ -93,12 +110,15 @@ public class StoreDAOImpl implements StoreDAO {
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		
 		
 		try {
 			con = pool.take();
-			Statement statement = con.createStatement();
-			ResultSet resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
 			
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
 			
 			//Надо бы добавить в таблицу Equipment базы данные поле status - удалено ли снарядение или нет.
 			//В замен смотрим количество снаряжения в наличии если 0 то не добавлять этот элемент в список.
@@ -115,11 +135,15 @@ public class StoreDAOImpl implements StoreDAO {
 				}
 			}
 			
-			listResponse = new ListResponse();
-			listResponse.setList(list);
-			listResponse.setMessage("Equipment list was added");
+			if(list.size() == 0){
+				listResponse = new ListResponse();
+				listResponse.setMessage("List is empty");
+			}else{
+				listResponse = new ListResponse();
+				listResponse.setList(list);
+				listResponse.setMessage("Equipment list was added");
+			}
 			
-			pool.free(con);
 		} catch (InterruptedException e) {
 			listResponse = new ListResponse();
 			listResponse.setErrorMessage("Equipment list was not added");
@@ -130,8 +154,9 @@ public class StoreDAOImpl implements StoreDAO {
 			listResponse.setErrorMessage("Error database query");
 			listResponse.setStatusError(true);
 			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
 		}
-	
 		return listResponse;
 	}
 
@@ -141,4 +166,11 @@ public class StoreDAOImpl implements StoreDAO {
 		return null;
 	}
 
+	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
+		try { if (resultSet != null) resultSet.close(); } catch (SQLException e) {};
+		try { if (statement != null) statement.close(); } catch (SQLException e) {};
+		try { if (preparedStatement != null) preparedStatement.close(); } catch (SQLException e) {};
+		try { pool.free(con); } catch (InterruptedException | DAOException e) {}
+	}
+	
 }

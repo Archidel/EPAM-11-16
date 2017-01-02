@@ -4,9 +4,7 @@ import com.epam.store.bean.EquipmentRequest;
 import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
-import com.epam.store.bean.TakeEquipmentRequest;
 import com.epam.store.bean.entity.Equipment;
-import com.epam.store.command.NameCommand;
 import com.epam.store.command.exception.CommandNotFoundException;
 import com.epam.store.controller.Controller;
 
@@ -30,10 +28,10 @@ public class View {
 		
 		//Добавить товары в магазин
 		Equipment equipment = new Equipment();
-		equipment.setTitle("Парашют");
+		equipment.setTitle("Санки");
 		equipment.setCategory("Sport equipment");
-		equipment.setPrice(5);
-		equipment.setQuantity(0);
+		equipment.setPrice(12);
+		equipment.setQuantity(20);
 		
 		EquipmentRequest equipmentRequest = new EquipmentRequest();
 		equipmentRequest.setCommand("add_new_equipment");
@@ -72,17 +70,17 @@ public class View {
 		
 		//Взять 3 предмета в аренду а потом еще затребовать 4й.
 		
-		TakeEquipmentRequest takeEquipmentRequest = new TakeEquipmentRequest();
+	/*	TakeEquipmentRequest takeEquipmentRequest = new TakeEquipmentRequest();
 		takeEquipmentRequest.setCommand(NameCommand.TAKE_EQUIPMENT_CMD);
 		takeEquipmentRequest.setTitle("Парашют");
 		
-		try {
+	/*	try {
 			response = controller.doAction(takeEquipmentRequest);
 			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+	*/	
 	}
 }
 
