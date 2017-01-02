@@ -1,6 +1,8 @@
 package com.epam.store.bean;
 
 public class RegisterClientRequest extends Request{
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String surname;
 	

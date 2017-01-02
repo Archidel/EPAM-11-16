@@ -4,6 +4,8 @@ import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Rent;
 
 public class RentEquipmentRequest extends Request{
+	private static final long serialVersionUID = 1L;
+	
 	private String title;
 	private Client client;
 	private Rent rentEquipment;
