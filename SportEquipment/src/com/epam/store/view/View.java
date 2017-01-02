@@ -4,11 +4,14 @@ import com.epam.store.bean.EquipmentRequest;
 import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
+import com.epam.store.bean.TakeEquipmentRequest;
 import com.epam.store.bean.entity.Equipment;
+import com.epam.store.command.NameCommand;
 import com.epam.store.command.exception.CommandNotFoundException;
 import com.epam.store.controller.Controller;
 
 public class View {
+	
 	private static final Controller controller = new Controller();
 	
 	public static void main(String [] args){
@@ -69,7 +72,16 @@ public class View {
 		
 		//Взять 3 предмета в аренду а потом еще затребовать 4й.
 		
+		TakeEquipmentRequest takeEquipmentRequest = new TakeEquipmentRequest();
+		takeEquipmentRequest.setCommand(NameCommand.TAKE_EQUIPMENT_CMD);
+		takeEquipmentRequest.setTitle("Парашют");
 		
+		try {
+			response = controller.doAction(takeEquipmentRequest);
+			PrintAnswer.Dispatcher(response);
+		} catch (CommandNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

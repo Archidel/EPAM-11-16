@@ -19,8 +19,8 @@ public class CommandProvider {
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put(NameCommand.TAKE_ITEM_CMD, new TakeEquipment());
-		list.put(NameCommand.RETURN_ITEM_CMD, new ReturnItem());
+		list.put(NameCommand.TAKE_EQUIPMENT_CMD, new TakeEquipment());
+		list.put(NameCommand.RETURN_EQUIPMENT_CMD, new ReturnItem());
 		list.put(NameCommand.GET_RENT_LIST_CMD, new GetRentList());
 		list.put(NameCommand.GET_EQUIPMENT_LIST_CMD, new GetEquipmentList());
 		list.put(NameCommand.REGISTER_CLIENT_CMD, new RegisterClient());
