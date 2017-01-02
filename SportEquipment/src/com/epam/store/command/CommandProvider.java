@@ -10,7 +10,7 @@ import com.epam.store.command.impl.RegisterClient;
 import com.epam.store.command.impl.ReturnItem;
 import com.epam.store.command.impl.GetEquipmentList;
 import com.epam.store.command.impl.GetRentList;
-import com.epam.store.command.impl.TakeEquipment;
+import com.epam.store.command.impl.RentEquipment;
 
 public class CommandProvider {
 	
@@ -19,7 +19,7 @@ public class CommandProvider {
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put(NameCommand.TAKE_EQUIPMENT_CMD, new TakeEquipment());
+		list.put(NameCommand.RENT_EQUIPMENT_CMD, new RentEquipment());
 		list.put(NameCommand.RETURN_EQUIPMENT_CMD, new ReturnItem());
 		list.put(NameCommand.GET_RENT_LIST_CMD, new GetRentList());
 		list.put(NameCommand.GET_EQUIPMENT_LIST_CMD, new GetEquipmentList());

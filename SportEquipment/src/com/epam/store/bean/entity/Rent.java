@@ -1,7 +1,6 @@
 package com.epam.store.bean.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Rent implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -9,8 +8,9 @@ public class Rent implements Serializable{
 	private int idClient;
 	private int idRent;
 	private int idEquipment;
-	private Date dateFrom;
-	private Date dateTo;
+	private String dateFrom;
+	private String dateTo;
+	private boolean status;
 	
 	public int getIdClient() {
 		return idClient;
@@ -35,21 +35,33 @@ public class Rent implements Serializable{
 	public void setIdEquipment(int idEquipment) {
 		this.idEquipment = idEquipment;
 	}
-	
-	public Date getDateFrom() {
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public String getDateFrom() {
 		return dateFrom;
 	}
-	
-	public void setDateFrom(Date dateFrom) {
+
+	public void setDateFrom(String dateFrom) {
 		this.dateFrom = dateFrom;
 	}
-	
-	public Date getDateTo() {
+
+	public String getDateTo() {
 		return dateTo;
 	}
-	
-	public void setDateTo(Date dateTo) {
+
+	public void setDateTo(String dateTo) {
 		this.dateTo = dateTo;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

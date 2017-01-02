@@ -1,7 +1,7 @@
 package com.epam.store.command;
 
 public final class NameCommand {
-	public static final String TAKE_EQUIPMENT_CMD  = "take_equipment";
+	public static final String RENT_EQUIPMENT_CMD  = "rent_equipment";
 	public static final String RETURN_EQUIPMENT_CMD  = "return_equipment";
 	public static final String GET_RENT_LIST_CMD  = "get_rent_list";
 	public static final String GET_EQUIPMENT_LIST_CMD  = "get_equipment_list";

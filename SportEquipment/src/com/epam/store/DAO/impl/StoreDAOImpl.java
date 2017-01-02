@@ -170,7 +170,7 @@ public class StoreDAOImpl implements StoreDAO {
 		try { if (resultSet != null) resultSet.close(); } catch (SQLException e) {};
 		try { if (statement != null) statement.close(); } catch (SQLException e) {};
 		try { if (preparedStatement != null) preparedStatement.close(); } catch (SQLException e) {};
-		try { pool.free(con); } catch (InterruptedException | DAOException e) {}
+		try { if (pool != null) pool.free(con); } catch (InterruptedException | DAOException e) {}
 	}
 	
 }

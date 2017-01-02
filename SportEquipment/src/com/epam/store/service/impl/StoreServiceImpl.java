@@ -14,7 +14,7 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public Response AddNewClient(Client client) throws ServiceException {
-		Response response = null;
+		Response response = new Response();
 		
 		boolean nameIsValid = ValidationData.currentData(client.getName());
 		boolean surnameIsValid = ValidationData.currentData(client.getSurname());
@@ -26,13 +26,11 @@ public class StoreServiceImpl implements StoreService {
 			try {
 				response = storeDAO.AddNewClient(client);
 			} catch (DAOException e) {
-				response = new Response();
 				response.setMessage("Client was not added");
 				response.setStatusError(true);
 				throw new ServiceException(e);
 			}	
 		}else{
-			response = new Response();
 			response.setErrorMessage("Invalid user data");
 			response.setStatusError(true);
 			throw new ServiceException("Invalid user data");

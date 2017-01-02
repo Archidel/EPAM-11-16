@@ -4,7 +4,10 @@ import com.epam.store.bean.EquipmentRequest;
 import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
+import com.epam.store.bean.RentEquipmentRequest;
+import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
+import com.epam.store.bean.entity.Rent;
 import com.epam.store.command.exception.CommandNotFoundException;
 import com.epam.store.controller.Controller;
 
@@ -47,8 +50,8 @@ public class View {
 		//регистрация клиента который хочет взять снаряжения в аренду
 		RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("Alex");
-		registerClient.setSurname("Zayac");
+		registerClient.setName("Angel");
+		registerClient.setSurname("qwerty");
 		
 		try {
 			response = controller.doAction(registerClient);
@@ -68,20 +71,36 @@ public class View {
 			e.printStackTrace();
 		}
 		
+		////////////////////////////////////////////////////////////////////////
 		//Взять 3 предмета в аренду а потом еще затребовать 4й.
+		Client clinet = new Client();
+		clinet.setName("Angel");
+		clinet.setSurname("Qwerty");
 		
-	/*	TakeEquipmentRequest takeEquipmentRequest = new TakeEquipmentRequest();
-		takeEquipmentRequest.setCommand(NameCommand.TAKE_EQUIPMENT_CMD);
-		takeEquipmentRequest.setTitle("Парашют");
+		Rent rentEquipment = new Rent();
+		rentEquipment.setDateFrom(DateRent(2016, 12, 31));
+		rentEquipment.setDateTo(DateRent(2017, 10, 24));
+	
+		RentEquipmentRequest takeEquipmentRequest = new RentEquipmentRequest();
+		takeEquipmentRequest.setClient(clinet);
+		takeEquipmentRequest.setRentEquipment(rentEquipment);
+		takeEquipmentRequest.setCommand("rent_equipment");
+		takeEquipmentRequest.setTitle("Санки");
 		
-	/*	try {
+		try {
 			response = controller.doAction(takeEquipmentRequest);
 			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-	*/	
+		
 	}
+	
+	private static String DateRent(int year, int month, int day){
+		String date = year + "-" + month + "-" + day;
+		return date;
+	}
+
 }
 
 /*
@@ -90,5 +109,5 @@ public class View {
 3. взять 3 предмета 
 	потом еще 1
 4. показать список арендованных 
-
 */
+
