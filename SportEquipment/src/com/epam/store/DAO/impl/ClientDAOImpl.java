@@ -146,53 +146,20 @@ public class ClientDAOImpl implements ClientDAO {
 			//Поиск снаряжения и по title и нахождение его ID +  
 			//Изменение статуса в таблице rent
 			
-			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_TITLE_FROM_EQUIPMENT);
+			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
 			
-			if(idClient != 0){
-				
-				
-				
-				/*
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 					BUG (не заходит в if)
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 * 
-				 */
+			System.out.println(idClient);
+			
+			if(idClient != 0){ // + 
+				System.out.println("idClient != 0");
 				
 				int idEquipment = 0; 
-				while(resultSet.next()){
-					System.out.println(resultSet.getString(2) + "!!!");
-					
-					if(titleEquipment.equalsIgnoreCase(resultSet.getString(2))){
-						System.out.println("Asdcasdascdasd");
-					}
-					
-					
-					
-				/*	if(resultSet.getString(2).equalsIgnoreCase(titleEquipment)){
-						System.out.println("in brecket");
+				while(resultSet.next()){ 
+					if(resultSet.getString(3).equalsIgnoreCase(titleEquipment)){
 						idEquipment = resultSet.getInt(1);
 						break;
 					}
-				*/}
+				}
 				
 				System.out.println("# = " + idEquipment);
 				if(idEquipment != 0){

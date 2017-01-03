@@ -31,12 +31,12 @@ public class View {
 			e.printStackTrace();
 		}
 		
-		//Добавить товары в магазин
-		/*Equipment equipment = new Equipment();
-		equipment.setTitle("Санки");
+	/*	//Добавить товары в магазин
+		Equipment equipment = new Equipment();
+		equipment.setTitle("Коньки");
 		equipment.setCategory("Sport equipment");
-		equipment.setPrice(12);
-		equipment.setQuantity(20);
+		equipment.setPrice(20);
+		equipment.setQuantity(1);
 		
 		EquipmentRequest equipmentRequest = new EquipmentRequest();
 		equipmentRequest.setCommand("add_new_equipment");
@@ -47,8 +47,8 @@ public class View {
 			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
-		}
-		*/
+		}*/
+		
 		//регистрация клиента который хочет взять снаряжения в аренду
 		/*RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
@@ -89,7 +89,7 @@ public class View {
 		rentEquipmentRequest.setClient(clinet_1);
 		rentEquipmentRequest.setRentEquipment(rentEquipment);
 		rentEquipmentRequest.setCommand("rent_equipment");
-		rentEquipmentRequest.setTitle("Санки");
+		rentEquipmentRequest.setTitle("Коньки");
 		
 		try {
 			response = controller.doAction(rentEquipmentRequest);
@@ -97,7 +97,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-	*/	
+		*/
 		//Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения) 
 		Client client_2 = new Client();
 		client_2.setName("Will");
@@ -106,7 +106,7 @@ public class View {
 		RentEquipmentRequest returnEquipmentRequest = new RentEquipmentRequest();
 		returnEquipmentRequest.setClient(client_2);
 		returnEquipmentRequest.setCommand("return_equipment");
-		returnEquipmentRequest.setTitle("Cанки");
+		returnEquipmentRequest.setTitle("Коньки");
 		
 		try {
 			response = controller.doAction(returnEquipmentRequest);
