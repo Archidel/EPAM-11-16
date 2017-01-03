@@ -38,11 +38,41 @@ public class ClientServiceImpl implements ClientService {
 			}	
 			
 		}else{
+			response.setErrorMessage("Invalid title equipment or client data or rent date");
+			response.setStatusError(true);
+			throw new ServiceException("Invalid title equipment or client data or rent date");
+		}
+	
+		return response;
+	}
+
+	@Override
+	public Response ReturnEquipment(RentEquipmentRequest returnEquipmentRequest) throws ServiceException {
+		Response response = new Response();
+		
+		String titleEquipment = returnEquipmentRequest.getTitle();
+		Client client = returnEquipmentRequest.getClient();
+		
+		boolean titleEquipmentIsValid = ValidationData.currentData(titleEquipment); 
+		boolean clientNameIsValid = ValidationData.currentData(client.getName());
+		boolean clientSurnameIsValid = ValidationData.currentData(client.getSurname());
+		
+		if(titleEquipmentIsValid && clientNameIsValid && clientSurnameIsValid){
+			DAOFactory daoFactory = DAOFactory.getInstance();
+			ClientDAO clientDAO = daoFactory.getClientDAO();
+			
+			try {
+				response = clientDAO.ReturnEquipment(returnEquipmentRequest);
+			} catch (DAOException e) {
+				throw new ServiceException(e);
+			}	
+			
+		}else{
 			response.setErrorMessage("Invalid title equipment or client data");
 			response.setStatusError(true);
 			throw new ServiceException("Invalid title equipment or client data");
 		}
-	
+		
 		return response;
 	}
 

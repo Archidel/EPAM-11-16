@@ -47,16 +47,17 @@ public class ClientDAOImpl implements ClientDAO {
 			while(resultSet.next()){
 				if(resultSet.getString(2).equalsIgnoreCase(client.getName()) && resultSet.getString(3).equalsIgnoreCase(client.getSurname())){
 					idClient = resultSet.getInt(1);
+					break;
 				}
 			}
 			resultSet.close();
 			
 			int numberOfAlreadyRented = 0;
 			if(idClient != 0){
-				resultSet = statement.executeQuery(SQLCommand.SELECT_IDCLIENT_FROM_RENT);
+				resultSet = statement.executeQuery(SQLCommand.SELECT_IDCLIENT_STATUS_FROM_RENT);
 				while(resultSet.next()){
 					if(resultSet.getInt(1) == idClient){
-						if(resultSet.getBoolean(7) == false){
+						if(resultSet.getBoolean(2) == false){
 							numberOfAlreadyRented++;	
 						}			
 					}
@@ -87,7 +88,7 @@ public class ClientDAOImpl implements ClientDAO {
 							preparedStatement.executeUpdate();
 							preparedStatement.close();
 							
-							preparedStatement = con.prepareStatement(SQLCommand.UPDATE_EUANTITY_DECREMENT_FROM_EQUIPMENT);
+							preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_DECREMENT_FROM_EQUIPMENT);
 							preparedStatement.setInt(1, equipment.getId());
 							preparedStatement.executeUpdate();
 							
@@ -116,11 +117,125 @@ public class ClientDAOImpl implements ClientDAO {
 		return equipmentResponse;
 	}
 
+	@Override
+	public Response ReturnEquipment(RentEquipmentRequest returnEquipmentRequest) throws DAOException {
+		Response response = new Response();
+		
+		String titleEquipment = returnEquipmentRequest.getTitle();
+		Client client = returnEquipmentRequest.getClient();
+		
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			
+			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_NAME_SURNAME_FROM_CLIENT);
+			int idClient = 0;
+			while(resultSet.next()){
+				if(resultSet.getString(2).equalsIgnoreCase(client.getName()) && resultSet.getString(3).equalsIgnoreCase(client.getSurname())){
+					idClient = resultSet.getInt(1);
+					break;
+				}
+			}
+			resultSet.close();
+			//Поиск снаряжения и по title и нахождение его ID +  
+			//Изменение статуса в таблице rent
+			
+			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_TITLE_FROM_EQUIPMENT);
+			
+			if(idClient != 0){
+				
+				
+				
+				/*
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 					BUG (не заходит в if)
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				
+				int idEquipment = 0; 
+				while(resultSet.next()){
+					System.out.println(resultSet.getString(2) + "!!!");
+					
+					if(titleEquipment.equalsIgnoreCase(resultSet.getString(2))){
+						System.out.println("Asdcasdascdasd");
+					}
+					
+					
+					
+				/*	if(resultSet.getString(2).equalsIgnoreCase(titleEquipment)){
+						System.out.println("in brecket");
+						idEquipment = resultSet.getInt(1);
+						break;
+					}
+				*/}
+				
+				System.out.println("# = " + idEquipment);
+				if(idEquipment != 0){
+					preparedStatement = con.prepareStatement(SQLCommand.UPDATE_CHANGE_STATUS_FROM_RENT);
+					preparedStatement.setBoolean(1, true);
+					preparedStatement.setInt(2, idClient);
+					preparedStatement.setInt(3, idEquipment);
+					preparedStatement.executeUpdate();
+					preparedStatement.close();
+					
+					preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_INCREMENT_FROM_EQUIPMENT);
+					preparedStatement.executeUpdate();
+					
+					response.setMessage("Equipment " + titleEquipment + " was returned by " + client.getName() + " " + client.getSurname());
+				}else{
+					response.setErrorMessage("This equipment is not found in data base");
+					response.setStatusError(true);
+				}
+			}else{
+				response.setErrorMessage("This client is not registered in the database");
+				response.setStatusError(true);
+			}
+
+		} catch (InterruptedException e) {
+			response.setErrorMessage("Attempt to return a client the equipment fails");
+			response.setStatusError(true);
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			response.setErrorMessage("Error database query");
+			response.setStatusError(true);
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, preparedStatement, resultSet);
+		}
+			return response;
+		}
+
 	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
 		try { if (resultSet != null) resultSet.close(); } catch (SQLException e) {};
 		try { if (statement != null) statement.close(); } catch (SQLException e) {};
 		try { if (preparedStatement != null) preparedStatement.close(); } catch (SQLException e) {};
 		try { if (pool != null) pool.free(con); } catch (InterruptedException | DAOException e) {}
 	}
+
 	
 }

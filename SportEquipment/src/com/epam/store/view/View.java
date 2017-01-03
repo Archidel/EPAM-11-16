@@ -1,6 +1,7 @@
 package com.epam.store.view;
 
 import com.epam.store.bean.EquipmentRequest;
+import com.epam.store.bean.EquipmentResponse;
 import com.epam.store.bean.RegisterClientRequest;
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
@@ -9,6 +10,7 @@ import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
 import com.epam.store.bean.entity.Rent;
 import com.epam.store.command.exception.CommandNotFoundException;
+import com.epam.store.command.impl.RentEquipment;
 import com.epam.store.controller.Controller;
 
 public class View {
@@ -30,7 +32,7 @@ public class View {
 		}
 		
 		//Добавить товары в магазин
-		Equipment equipment = new Equipment();
+		/*Equipment equipment = new Equipment();
 		equipment.setTitle("Санки");
 		equipment.setCategory("Sport equipment");
 		equipment.setPrice(12);
@@ -46,12 +48,12 @@ public class View {
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		
+		*/
 		//регистрация клиента который хочет взять снаряжения в аренду
-		RegisterClientRequest registerClient = new RegisterClientRequest();
+		/*RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("Angel");
-		registerClient.setSurname("qwerty");
+		registerClient.setName("Will");
+		registerClient.setSurname("Smith");
 		
 		try {
 			response = controller.doAction(registerClient);
@@ -59,7 +61,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-				
+		*/		
 		//Показать список всех товараов что есть в наличии
 		Request getEquipmentList = new Request();
 		getEquipmentList.setCommand("get_equipment_list");
@@ -71,28 +73,48 @@ public class View {
 			e.printStackTrace();
 		}
 		
-		////////////////////////////////////////////////////////////////////////
-		//Взять 3 предмета в аренду а потом еще затребовать 4й.
-		Client clinet = new Client();
-		clinet.setName("Angel");
-		clinet.setSurname("Qwerty");
+		//Берём в аренду снаряжения
+		/*	БАГ
+		 * Нет высчита total price for rent table(подсчёт дней из внесённой даты)
+		 */
+	/*	Client clinet_1 = new Client();
+		clinet_1.setName("Will");
+		clinet_1.setSurname("Smith");
 		
 		Rent rentEquipment = new Rent();
 		rentEquipment.setDateFrom(DateRent(2016, 12, 31));
 		rentEquipment.setDateTo(DateRent(2017, 10, 24));
 	
-		RentEquipmentRequest takeEquipmentRequest = new RentEquipmentRequest();
-		takeEquipmentRequest.setClient(clinet);
-		takeEquipmentRequest.setRentEquipment(rentEquipment);
-		takeEquipmentRequest.setCommand("rent_equipment");
-		takeEquipmentRequest.setTitle("Санки");
+		RentEquipmentRequest rentEquipmentRequest = new RentEquipmentRequest();
+		rentEquipmentRequest.setClient(clinet_1);
+		rentEquipmentRequest.setRentEquipment(rentEquipment);
+		rentEquipmentRequest.setCommand("rent_equipment");
+		rentEquipmentRequest.setTitle("Санки");
 		
 		try {
-			response = controller.doAction(takeEquipmentRequest);
+			response = controller.doAction(rentEquipmentRequest);
 			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
+	*/	
+		//Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения) 
+		Client client_2 = new Client();
+		client_2.setName("Will");
+		client_2.setSurname("Smith");
+		
+		RentEquipmentRequest returnEquipmentRequest = new RentEquipmentRequest();
+		returnEquipmentRequest.setClient(client_2);
+		returnEquipmentRequest.setCommand("return_equipment");
+		returnEquipmentRequest.setTitle("Cанки");
+		
+		try {
+			response = controller.doAction(returnEquipmentRequest);
+			PrintAnswer.Dispatcher(response);
+		} catch (CommandNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
