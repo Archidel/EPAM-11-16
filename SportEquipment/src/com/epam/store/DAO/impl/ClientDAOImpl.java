@@ -56,7 +56,9 @@ public class ClientDAOImpl implements ClientDAO {
 				resultSet = statement.executeQuery(SQLCommand.SELECT_IDCLIENT_FROM_RENT);
 				while(resultSet.next()){
 					if(resultSet.getInt(1) == idClient){
-						numberOfAlreadyRented++;
+						if(resultSet.getBoolean(7) == false){
+							numberOfAlreadyRented++;	
+						}			
 					}
 				}
 				resultSet.close();
