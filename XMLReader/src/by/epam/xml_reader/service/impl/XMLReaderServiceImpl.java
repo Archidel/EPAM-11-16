@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,9 +20,7 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 			throw new ServiceException();
 		}else{
 			list = new ArrayList<>();
-			BufferedReader reader = null;
-			try {
-				reader = new BufferedReader(new FileReader(new File(path)));
+			try(BufferedReader reader = new BufferedReader(new FileReader(new File(path)));){
 				while(reader.ready()){
 					list.add(reader.readLine().trim());
 				}
@@ -29,15 +28,13 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 				throw new ServiceException(e);
 			} catch (IOException e) {
 				throw new ServiceException(e);
-			}finally{
-				close(reader);
 			}
 		}
 		return list;
 	}
 
 	@Override
-	public ArrayList<String> readFilesTag(ArrayList<String> list) {
+	public ArrayList<String> readFilesTag(ArrayList<String> list) throws ServiceException {
 		ArrayList<String> answerList = new ArrayList<String>();
 		for(int i = 1; i < list.size(); i++){
 			answerList.add(tagAnalyzer(list.get(i).toCharArray()));
@@ -103,7 +100,7 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 		return line;
 	}
 
-	private String twoTag(char [] array){
+	private String twoTag(char [] array) throws ServiceException{
 		String line = null;
 		int firstNumberOpeningTag = -1;
 		int secondNumberClosingTag = -1;
@@ -162,7 +159,7 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 			
 			//ПРОВЕРКА соответсвие двух тегов (вдруг чушь написана в xml фале)
 			if(!firstNameTag.equalsIgnoreCase(secondNameTag)){
-				System.err.println("EXCEPTION THE FIRST TAG NOT EQUALSE THE SECOND TAG");
+				throw new ServiceException("The first name tag not equalse name the second tag");
 			}else{
 				//Здесь-я мы определяем содержимое тегов
 				for(int k = secondNumberClosingTag + 1; k < thirdNumberOpeningTag; k++){
@@ -171,7 +168,7 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 				line = formatterTwoTag(secondNameTag, attribute, content, isAttribute);
 			}
 		}else{
-			System.err.println("EXCEPTION ONE OF DATE NOT FOUND");
+			throw new ServiceException("One of date not found");
 		}
 		
 		return line;
@@ -187,7 +184,7 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 		return line;
 	}
 
-	private String tagAnalyzer(char [] array){
+	private String tagAnalyzer(char [] array) throws ServiceException{
 		String line = null;
 		int TagCounter = 0;
 		
@@ -212,19 +209,15 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 	}
 
 	@Override
-	public boolean setDataToFile(ArrayList<String> list) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private void close(BufferedReader reader) throws ServiceException{
-		if(reader != null){
-			try {
-				reader.close();
-			} catch (IOException e) {
-				throw new ServiceException("Close reader is ERROR");
+	public void setDataToFile(ArrayList<String> list) {
+   	try(FileWriter writer = new FileWriter("src/resource/XMLReader.txt", false)){
+			for(int i = 0; i < list.size(); i++){
+				writer.write(list.get(i) + "\n");
 			}
-		}
+			writer.flush();
+		}catch(IOException ex){
+        	ex.printStackTrace();
+        } 
 	}
 	
 }

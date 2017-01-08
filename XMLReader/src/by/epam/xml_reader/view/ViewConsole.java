@@ -24,6 +24,8 @@ public class ViewConsole {
 			list = readerService.readFilesTag(list);
 			Printer.printArray(list);
 			
+			readerService.setDataToFile(list);
+
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
