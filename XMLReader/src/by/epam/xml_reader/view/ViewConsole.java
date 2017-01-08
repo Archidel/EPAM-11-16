@@ -20,14 +20,14 @@ public class ViewConsole {
 		try {
 			list = readerService.getDataFromFile(path);
 			Printer.printArray(list);
+			
+			list = readerService.readFilesTag(list);
+			Printer.printArray(list);
+			
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
 
-		
-		
-		
-		readerService.readFilesTag(list);
 	
 	
 	}

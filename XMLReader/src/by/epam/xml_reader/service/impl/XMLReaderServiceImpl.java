@@ -38,12 +38,11 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 
 	@Override
 	public ArrayList<String> readFilesTag(ArrayList<String> list) {
-		System.out.println("array size = " + list.size());
-		
+		ArrayList<String> answerList = new ArrayList<String>();
 		for(int i = 1; i < list.size(); i++){
-			tagAnalyzer(list.get(i).toCharArray());
+			answerList.add(tagAnalyzer(list.get(i).toCharArray()));
 		}
-		return null;
+		return answerList;
 	}
 
 	private String oneTag(char [] array){
@@ -188,7 +187,8 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 		return line;
 	}
 
-	private void tagAnalyzer(char [] array){
+	private String tagAnalyzer(char [] array){
+		String line = null;
 		int TagCounter = 0;
 		
 		//Счётчик количество тегов в строке
@@ -199,18 +199,16 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 		//Распеределение
 		switch (TagCounter) {
 		case 1: //В строке 1 тег
-			System.out.println(oneTag(array));	
-	//		oneTag(array);
+			line = oneTag(array);
 			break;
 		case 2: // В строке 2 тега
-			System.out.println(twoTag(array));
-	//		twoTag(array);
+			line = twoTag(array);
 			break;
-
 		default: // В строке ни одного или 3 и более тегов
 			//Exception
 			break;
 		}
+		return line;
 	}
 
 	@Override
