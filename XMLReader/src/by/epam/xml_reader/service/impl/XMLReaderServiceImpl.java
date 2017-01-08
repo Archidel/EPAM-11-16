@@ -41,104 +41,99 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 		System.out.println("array size = " + list.size());
 		
 		for(int i = 1; i < list.size(); i++){
-			tagFinder(list.get(i).toCharArray());
+			tagAnalyzer(list.get(i).toCharArray());
 		}
 		return null;
 	}
 
-	/* Подсчёт количества открывающихся тегов если 2
-	 * 
-	 */
+	private String oneTag(char [] array){
+		String line = null;
+		int numberOpeningTag = -1;
+		int numberClosingTag = -1;
+		int numberTagAttribute = -1;
+		boolean isClosedTag = false;
+		boolean isAttribute = false;
+		
+		//Запись индексов открывающегося, закрывающегося и определение закрывается тег или нет
+		for(int j = 0; j < array.length; j++){
+			if(array[j] == '<'){
+				numberOpeningTag = j;
+			}
+			if(array[j] == '>'){
+				numberClosingTag = j;
+			}
+			if(array[j] == '<' && array[j+1] == '/'){
+				isClosedTag = true;
+			}
+		}
 	
-	private void tagFinder(char [] array){
-		int openTag = -1;
-		int closeTag = -1;
-		boolean closebleTag = false;
-		boolean tagHaveSoul = false;
-		int indexTagHaveSout = -1;
-		
-		int openTagCouter = 0;
-
-		//Подсчёт сколько количество открыв. тегов имеется в строке
-		for(int k = 0; k < array.length; k++){
-			if(array[k] == '<'){
-				openTagCouter++;
-			}
-		}
-		
-		//условие расперделения 
-		if(openTagCouter == 1){ 
-			System.err.println("В строке 1 тег: ");
-			for(int j = 0; j < array.length; j++){
-				if(array[j] == '<'){
-					openTag = j;
-				}
-				if(array[j] == '>'){
-					closeTag = j;
-				}
-				if(array[j] == '<' && array[j+1] == '/'){
-					closebleTag = true;
-				}
-			}
-		
-			//Проверка на соответсие открыв. и закрыв. тега
-			if(openTag != -1 && closeTag != -1){
-				String strTag = "";
-				for(int i = openTag+1; i < closeTag; i++){
-					if(array[i] == ' '){
-						tagHaveSoul = true;
-						break;
-					}else{
-						strTag += array[i];
-						indexTagHaveSout = i;
-					}
-				}
-				
-				//если содержит атрибуты в себе (тег)
-				if(tagHaveSoul){
-					// Передача в другой метод для разсбора по деталя (массив и indexTagHaveSoul, closeTag); !!!!!!!!!!!!!
-					// Может еще и вкинуть strTag(название тега) для формирования полной информационной строки
-				}
-				
-				//Какой тип тега "закрывающийся" "открывающийся"
-				if(closebleTag){
-					System.out.println("Закрывается тег с названием: " + strTag);
+		//Проверка значений индекосв тега (вдруг запись в XML файле не корректа)
+		if(numberOpeningTag != -1 && numberClosingTag != -1){
+			String nameTag = "";
+			String attribute = "";
+			
+			for(int i = numberOpeningTag + 1; i < numberClosingTag; i++){
+				if(array[i] == ' '){
+					isAttribute = true;
+					break;
 				}else{
-					System.out.println("Открывается тег с названием: " + strTag);		
+					nameTag += array[i];
+					numberTagAttribute = i + 2;
 				}
-				
-			}else{
-				System.err.println("FATAL EXCEPTION IN OPEN CLOSE TAG (-1)");
 			}
 		
-		}else if (openTagCouter == 2){
-			System.err.println("В строке 2 тега");
-		
-		}else{
-			System.err.println("FATAL EXCEPTION");
-		}
-		
-		
-		
-		
+			//Читаем аттрибут тега
+			for(int i = numberTagAttribute; i < numberClosingTag; i++) attribute += array[i];	
+			line = formatterOneTag(nameTag, attribute, isAttribute, isClosedTag);
+		} 
+		return line;
 	}
 	
+	private String formatterOneTag(String nameTag, String attribute, boolean isAttribute, boolean isClosedTag){
+		String line = null;
+		if(isClosedTag){
+			line = "Закрывается тег " + nameTag;
+		}else{
+			if(isAttribute){
+				line = "Открывается тег " + nameTag + " который содержит в себе атрибуты: " + attribute;
+			}else{
+				line = "Открывается тег " + nameTag + " который не содержит в себе атрибутов";
+			}
+		}
+		return line;
+	}
+
+	private String twoTag(char [] array){
+		return null;
+	}
 	
+	private void tagAnalyzer(char [] array){
+		int TagCounter = 0;
+		
+		//Счётчик количество тегов в строке
+		for(char count : array){
+			if(count == '<') TagCounter++;
+		}
+		
+		//Распеределение
+		switch (TagCounter) {
+		case 1: //В строке 1 тег
+			System.out.println(oneTag(array));	
+	//		oneTag(array);
+			break;
+		case 2: // В строке 2 тега
+			System.out.println(twoTag(array));
+	//		twoTag(array);
+			break;
+
+		default: // В строке ни одного или 3 и более тегов
+			//Exception
+			break;
+		}
+	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public boolean setDataToFile(ArrayList<String> list) {
 		// TODO Auto-generated method stub
