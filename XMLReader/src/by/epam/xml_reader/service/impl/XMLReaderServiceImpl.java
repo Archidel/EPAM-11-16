@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.omg.PortableServer.THREAD_POLICY_ID;
-
 import by.epam.xml_reader.service.XMLReaderService;
 import by.epam.xml_reader.service.exception.ServiceException;
 
