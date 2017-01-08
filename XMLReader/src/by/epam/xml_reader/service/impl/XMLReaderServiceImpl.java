@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.omg.PortableServer.THREAD_POLICY_ID;
+
 import by.epam.xml_reader.service.XMLReaderService;
 import by.epam.xml_reader.service.exception.ServiceException;
 
@@ -81,9 +83,10 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 					numberTagAttribute = i + 2;
 				}
 			}
-		
-			//Читаем аттрибут тега
-			for(int i = numberTagAttribute; i < numberClosingTag; i++) attribute += array[i];	
+			//Читаем атрибут тега
+			if(isAttribute){
+				for(int i = numberTagAttribute; i < numberClosingTag; i++) attribute += array[i];
+			}
 			line = formatterOneTag(nameTag, attribute, isAttribute, isClosedTag);
 		} 
 		return line;
@@ -92,21 +95,101 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 	private String formatterOneTag(String nameTag, String attribute, boolean isAttribute, boolean isClosedTag){
 		String line = null;
 		if(isClosedTag){
-			line = "Закрывается тег " + nameTag;
+			line = "Тег " + nameTag + " закрывается.";
 		}else{
 			if(isAttribute){
-				line = "Открывается тег " + nameTag + " который содержит в себе атрибуты: " + attribute;
+				line = "Открывается тег " + nameTag + " который имеет атрибуты: " + attribute + ".";
 			}else{
-				line = "Открывается тег " + nameTag + " который не содержит в себе атрибутов";
+				line = "Открывается тег " + nameTag + " который не имеет атрибутов.";
 			}
 		}
 		return line;
 	}
 
 	private String twoTag(char [] array){
-		return null;
+		String line = null;
+		int firstNumberOpeningTag = -1;
+		int secondNumberClosingTag = -1;
+		int thirdNumberOpeningTag = -1;
+		int fourthNumberClosingTag = -1;
+		int numberTagAttribute = -1;
+		boolean isAttribute = false;
+		
+		for(int j = 0; j < array.length; j++){
+			if(array[j] == '<'){
+				if(firstNumberOpeningTag == -1){
+					firstNumberOpeningTag = j;
+				}else{
+					thirdNumberOpeningTag = j;
+				}
+			}	
+			if(array[j] == '>'){
+				if(secondNumberClosingTag == -1){
+					secondNumberClosingTag = j;
+				}else{
+					fourthNumberClosingTag = j;
+				}
+			}
+		}
+		
+		if(firstNumberOpeningTag != -1 && secondNumberClosingTag != -1 && thirdNumberOpeningTag != -1 && fourthNumberClosingTag != -1){
+			String firstNameTag = "";
+			String secondNameTag = "";
+			String content = "";
+			String attribute = "";
+			//Определяем название первого тега
+			for(int i = firstNumberOpeningTag + 1; i < secondNumberClosingTag; i++){
+				if(array[i] == ' '){
+					isAttribute = true;
+					break;
+				}else{
+					firstNameTag += array[i];
+					numberTagAttribute = i + 2;
+				}
+			}
+			//Определяем название второго тега
+			for(int i = firstNumberOpeningTag + 1; i < secondNumberClosingTag; i++){
+				if(array[i] == ' '){
+					isAttribute = true;
+					break;
+				}else{
+					secondNameTag += array[i];
+					numberTagAttribute = i + 2;
+				}
+			}
+			
+			//Ищем атрибут
+			if(isAttribute){
+				for(int i = numberTagAttribute; i < secondNumberClosingTag; i++) attribute += array[i];
+			}
+			
+			//ПРОВЕРКА соответсвие двух тегов (вдруг чушь написана в xml фале)
+			if(!firstNameTag.equalsIgnoreCase(secondNameTag)){
+				System.err.println("EXCEPTION THE FIRST TAG NOT EQUALSE THE SECOND TAG");
+			}else{
+				//Здесь-я мы определяем содержимое тегов
+				for(int k = secondNumberClosingTag + 1; k < thirdNumberOpeningTag; k++){
+					content += array[k];
+				}
+				line = formatterTwoTag(secondNameTag, attribute, content, isAttribute);
+			}
+		}else{
+			System.err.println("EXCEPTION ONE OF DATE NOT FOUND");
+		}
+		
+		return line;
 	}
 	
+	private String formatterTwoTag(String nameTag, String attribute, String content, boolean isAttribute){
+		String line = null;
+		if(isAttribute){
+			line = "Открывается тег " + nameTag + " который имеет атрибуты: " + attribute + "и содержит в себе: " + content + ". Тег " + nameTag + " закрывается.";
+		}else{
+			line = "Открывается тег " + nameTag + " который не имеет атрибутов" + "и содержит в себе: " + content + ". Тег " + nameTag + " закрывается.";;
+		}
+		return line;
+	}
+
 	private void tagAnalyzer(char [] array){
 		int TagCounter = 0;
 		
@@ -131,8 +214,6 @@ public class XMLReaderServiceImpl implements XMLReaderService{
 			break;
 		}
 	}
-
-	
 
 	@Override
 	public boolean setDataToFile(ArrayList<String> list) {
