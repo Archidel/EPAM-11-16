@@ -18,19 +18,11 @@ public class ViewConsole {
 		ArrayList<String> list = null;
 		
 		try {
-			list = readerService.getDataFromFile(path);
-			Printer.printArray(list);
-			
-			list = readerService.readFilesTag(list);
-			Printer.printArray(list);
-			
-			readerService.setDataToFile(list);
-
+			list = readerService.getDataFromFile(path); // Получаме массив данных из файла	
+			list = readerService.readFilesTag(list); // Анлизирование XML файла
+			readerService.setDataToFile(list); // Запись про анализированных данных в файл *.txt
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-
-	
-	
 	}
 }
