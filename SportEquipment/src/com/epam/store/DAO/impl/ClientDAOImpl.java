@@ -80,19 +80,25 @@ public class ClientDAOImpl implements ClientDAO {
 							equipmentResponse.setEquipment(equipment);
 							equipmentResponse.setMessage("Equipment "+ equipment.getTitle() +" was rented by " + client.getName() + " " + client.getSurname());
 							
-							preparedStatement.setInt(1, idClient);
-							preparedStatement.setInt(2, equipment.getId());
-							preparedStatement.setString(3, rentEquipment.getDateFrom());
-							preparedStatement.setString(4, rentEquipment.getDateTo());
-							preparedStatement.setInt(5, 1); //Значение по умолчанию!!! НЕ СДЕЛАН расчёт общей цены на арену (сделать на слое service)
-							preparedStatement.executeUpdate();
-							preparedStatement.close();
-							
-							preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_DECREMENT_FROM_EQUIPMENT);
-							preparedStatement.setInt(1, equipment.getId());
-							preparedStatement.executeUpdate();
-							
-							break;
+							if(resultSet.getInt(5) >= 0){
+								preparedStatement.setInt(1, idClient);
+								preparedStatement.setInt(2, equipment.getId());
+								preparedStatement.setString(3, rentEquipment.getDateFrom());
+								preparedStatement.setString(4, rentEquipment.getDateTo());
+								preparedStatement.setInt(5, 1); //Значение по умолчанию!!! НЕ СДЕЛАН расчёт общей цены на арену (сделать на слое service)
+								preparedStatement.executeUpdate();
+								preparedStatement.close();
+								
+								preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_DECREMENT_FROM_EQUIPMENT);
+								preparedStatement.setInt(1, equipment.getId());
+								preparedStatement.executeUpdate();
+								
+								break;
+							}else{
+								equipmentResponse.setErrorMessage("Quantity equipments is empty");
+								equipmentResponse.setStatusError(true);
+								break;
+							}
 						}
 					}
 				}else{
@@ -166,7 +172,9 @@ public class ClientDAOImpl implements ClientDAO {
 					preparedStatement = con.prepareStatement(SQLCommand.UPDATE_CHANGE_STATUS_FROM_RENT);
 					preparedStatement.setBoolean(1, true);
 					preparedStatement.setInt(2, idClient);
-					preparedStatement.setInt(3, idEquipment);
+					
+					/* Проблема в изменении статуа Rent item т.к. для профитного SQl требуется после слова WHERE 2 значения e_id(equipment ID), c_id(Client ID)
+					 */
 					preparedStatement.executeUpdate();
 					preparedStatement.close();
 					

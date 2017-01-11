@@ -18,6 +18,6 @@ public final class SQLCommand {
 	public static final String UPDATE_QUANTITY_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity + ? WHERE e_id = ?";
 	public static final String UPDATE_QUANTITY_INCREMENT_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity + 1 WHERE e_id = ?";
 	public static final String UPDATE_QUANTITY_DECREMENT_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity - 1 WHERE e_id = ?";
-	public static final String UPDATE_CHANGE_STATUS_FROM_RENT = "UPDATE rent SET r_status = ? WHERE c_id = ?, e_id = ?";
+	public static final String UPDATE_CHANGE_STATUS_FROM_RENT = "UPDATE rent SET r_status = ? WHERE c_id = ?";
 	
 }

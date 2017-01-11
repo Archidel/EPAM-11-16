@@ -31,12 +31,12 @@ public class View {
 			e.printStackTrace();
 		}
 		
-	/*	//Добавить товары в магазин
-		Equipment equipment = new Equipment();
+		//*****************************Добавить товары в магазин*****************************//
+	/*	Equipment equipment = new Equipment();
 		equipment.setTitle("Коньки");
 		equipment.setCategory("Sport equipment");
 		equipment.setPrice(20);
-		equipment.setQuantity(1);
+		equipment.setQuantity(10);
 		
 		EquipmentRequest equipmentRequest = new EquipmentRequest();
 		equipmentRequest.setCommand("add_new_equipment");
@@ -47,13 +47,13 @@ public class View {
 			PrintAnswer.Dispatcher(response);
 		} catch (CommandNotFoundException e1) {
 			e1.printStackTrace();
-		}*/
-		
-		//регистрация клиента который хочет взять снаряжения в аренду
-		/*RegisterClientRequest registerClient = new RegisterClientRequest();
+		}
+	*/	
+		//*****************************Регистрация клиента который хочет взять снаряжения в аренду*****************************//
+	/*	RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("Will");
-		registerClient.setSurname("Smith");
+		registerClient.setName("qwerty");
+		registerClient.setSurname("qwerty");
 		
 		try {
 			response = controller.doAction(registerClient);
@@ -61,8 +61,9 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		*/		
-		//Показать список всех товараов что есть в наличии
+		*/
+		
+		//*****************************Показать список всех товараов что есть в наличии*****************************//
 		Request getEquipmentList = new Request();
 		getEquipmentList.setCommand("get_equipment_list");
 		
@@ -72,14 +73,14 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		//Берём в аренду снаряжения
+	
+		//*****************************Берём в аренду снаряжения*****************************//
 		/*	БАГ
 		 * Нет высчита total price for rent table(подсчёт дней из внесённой даты)
-		 */
-	/*	Client clinet_1 = new Client();
-		clinet_1.setName("Will");
-		clinet_1.setSurname("Smith");
+		 *//*
+		Client clinet_1 = new Client();
+		clinet_1.setName("qwerty");
+		clinet_1.setSurname("qwerty");
 		
 		Rent rentEquipment = new Rent();
 		rentEquipment.setDateFrom(DateRent(2016, 12, 31));
@@ -97,11 +98,11 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		*/
-		//Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения) 
+	*/	
+		//*****************************Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения)*****************************// 
 		Client client_2 = new Client();
-		client_2.setName("Will");
-		client_2.setSurname("Smith");
+		client_2.setName("qwerty");
+		client_2.setSurname("qwerty");
 		
 		RentEquipmentRequest returnEquipmentRequest = new RentEquipmentRequest();
 		returnEquipmentRequest.setClient(client_2);
