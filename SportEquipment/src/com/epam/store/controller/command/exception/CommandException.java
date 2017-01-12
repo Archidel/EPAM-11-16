@@ -1,4 +1,4 @@
-package com.epam.store.command.exception;
+package com.epam.store.controller.command.exception;
 
 public class CommandException extends Exception{
 

@@ -1,8 +1,8 @@
-package com.epam.store.command.impl;
+package com.epam.store.controller.command.impl;
 
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
-import com.epam.store.command.Command;
+import com.epam.store.controller.command.Command;
 import com.epam.store.service.StoreService;
 import com.epam.store.service.exception.ServiceException;
 import com.epam.store.service.factory.ServiceFactory;

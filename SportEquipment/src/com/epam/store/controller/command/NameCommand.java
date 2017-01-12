@@ -1,4 +1,4 @@
-package com.epam.store.command;
+package com.epam.store.controller.command;
 
 public final class NameCommand {
 	public static final String RENT_EQUIPMENT_CMD  = "rent_equipment";

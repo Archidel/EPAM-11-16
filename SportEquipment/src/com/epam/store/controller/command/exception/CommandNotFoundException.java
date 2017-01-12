@@ -1,4 +1,4 @@
-package com.epam.store.command.exception;
+package com.epam.store.controller.command.exception;
 
 public class CommandNotFoundException extends CommandException{
 	private static final long serialVersionUID = 4064483459800219551L;

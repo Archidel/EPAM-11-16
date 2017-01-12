@@ -1,16 +1,16 @@
-package com.epam.store.command;
+package com.epam.store.controller.command;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.epam.store.command.exception.CommandNotFoundException;
-import com.epam.store.command.impl.AddNewEquipment;
-import com.epam.store.command.impl.Initialization;
-import com.epam.store.command.impl.RegisterClient;
-import com.epam.store.command.impl.ReturnEquipment;
-import com.epam.store.command.impl.GetEquipmentList;
-import com.epam.store.command.impl.GetRentList;
-import com.epam.store.command.impl.RentEquipment;
+import com.epam.store.controller.command.exception.CommandNotFoundException;
+import com.epam.store.controller.command.impl.AddNewEquipment;
+import com.epam.store.controller.command.impl.GetEquipmentList;
+import com.epam.store.controller.command.impl.GetRentList;
+import com.epam.store.controller.command.impl.Initialization;
+import com.epam.store.controller.command.impl.RegisterClient;
+import com.epam.store.controller.command.impl.RentEquipment;
+import com.epam.store.controller.command.impl.ReturnEquipment;
 
 public class CommandProvider {
 	

@@ -9,9 +9,9 @@ import com.epam.store.bean.RentEquipmentRequest;
 import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
 import com.epam.store.bean.entity.Rent;
-import com.epam.store.command.exception.CommandNotFoundException;
-import com.epam.store.command.impl.RentEquipment;
 import com.epam.store.controller.Controller;
+import com.epam.store.controller.command.exception.CommandNotFoundException;
+import com.epam.store.controller.command.impl.RentEquipment;
 
 public class View {
 	

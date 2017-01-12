@@ -2,10 +2,10 @@ package com.epam.store.controller;
 
 import com.epam.store.bean.Request;
 import com.epam.store.bean.Response;
-import com.epam.store.command.Command;
-import com.epam.store.command.CommandProvider;
-import com.epam.store.command.exception.CommandException;
-import com.epam.store.command.exception.CommandNotFoundException;
+import com.epam.store.controller.command.Command;
+import com.epam.store.controller.command.CommandProvider;
+import com.epam.store.controller.command.exception.CommandException;
+import com.epam.store.controller.command.exception.CommandNotFoundException;
 
 public class Controller {
 
