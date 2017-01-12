@@ -22,7 +22,7 @@ import com.epam.store.bean.entity.Rent;
 public class ClientDAOImpl implements ClientDAO {
 
 	@Override
-	public Response RentEquipment(RentEquipmentRequest rentEquipmentRequest) throws DAOException {
+	public Response rentEquipment(RentEquipmentRequest rentEquipmentRequest) throws DAOException {
 		EquipmentResponse equipmentResponse = new EquipmentResponse();
 		
 		DBResourceManager resourceManager = DBResourceManager.getInstance();
@@ -124,7 +124,7 @@ public class ClientDAOImpl implements ClientDAO {
 	}
 
 	@Override
-	public Response ReturnEquipment(RentEquipmentRequest returnEquipmentRequest) throws DAOException {
+	public Response returnEquipment(RentEquipmentRequest returnEquipmentRequest) throws DAOException {
 		Response response = new Response();
 		
 		String titleEquipment = returnEquipmentRequest.getTitle();

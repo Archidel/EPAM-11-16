@@ -13,7 +13,7 @@ import com.epam.store.service.valiadation.ValidationData;
 public class StoreServiceImpl implements StoreService {
 
 	@Override
-	public Response AddNewClient(Client client) throws ServiceException {
+	public Response addNewClient(Client client) throws ServiceException {
 		Response response = new Response();
 		
 		boolean nameIsValid = ValidationData.currentData(client.getName());
@@ -24,7 +24,7 @@ public class StoreServiceImpl implements StoreService {
 			StoreDAO storeDAO = factory.getStoreDAO();
 			
 			try {
-				response = storeDAO.AddNewClient(client);
+				response = storeDAO.addNewClient(client);
 			} catch (DAOException e) {
 				response.setMessage("Client was not added");
 				response.setStatusError(true);
@@ -39,7 +39,7 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public Response AddNewEquipment(Equipment equipment) throws ServiceException {
+	public Response addNewEquipment(Equipment equipment) throws ServiceException {
 		Response response = null;
 		
 		String title = equipment.getTitle();
@@ -56,7 +56,7 @@ public class StoreServiceImpl implements StoreService {
 			StoreDAO storeDAO = factory.getStoreDAO();
 			
 			try {
-				response = storeDAO.AddNewEquipment(equipment);
+				response = storeDAO.addNewEquipment(equipment);
 			} catch (DAOException e) {
 				response = new Response();
 				response.setErrorMessage("Equipment was not added");
@@ -73,14 +73,14 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public Response GetEquipmentList() throws ServiceException {
+	public Response getEquipmentList() throws ServiceException {
 		Response response = null;
 		
 		DAOFactory daoFactory = DAOFactory.getInstance();
 		StoreDAO storeDAO = daoFactory.getStoreDAO();
 		
 		try {
-			response = storeDAO.GetEquipmentList();
+			response = storeDAO.getEquipmentList();
 		} catch (DAOException e) {
 			response = new Response();
 			response.setErrorMessage("Equipment list can not be returned");
@@ -92,7 +92,7 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public Response GetRentList() throws ServiceException {
+	public Response getRentList() throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
 	}

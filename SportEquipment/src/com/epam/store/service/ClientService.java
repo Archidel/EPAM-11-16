@@ -5,6 +5,6 @@ import com.epam.store.bean.Response;
 import com.epam.store.service.exception.ServiceException;
 
 public interface ClientService {
-	Response RentEquipment(RentEquipmentRequest rentEquipmentRequest) throws ServiceException;
-	Response ReturnEquipment(RentEquipmentRequest returnEquipmentRequest) throws ServiceException;
+	Response rentEquipment(RentEquipmentRequest rentEquipmentRequest) throws ServiceException;
+	Response returnEquipment(RentEquipmentRequest returnEquipmentRequest) throws ServiceException;
 }

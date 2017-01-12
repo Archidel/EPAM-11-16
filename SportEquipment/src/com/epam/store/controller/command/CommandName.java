@@ -1,6 +1,6 @@
 package com.epam.store.controller.command;
 
-public final class NameCommand {
+public final class CommandName {
 	public static final String RENT_EQUIPMENT_CMD  = "rent_equipment";
 	public static final String RETURN_EQUIPMENT_CMD  = "return_equipment";
 	public static final String GET_RENT_LIST_CMD  = "get_rent_list";

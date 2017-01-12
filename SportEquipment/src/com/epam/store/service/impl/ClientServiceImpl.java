@@ -14,7 +14,7 @@ import com.epam.store.service.valiadation.ValidationData;
 public class ClientServiceImpl implements ClientService {
 
 	@Override
-	public Response RentEquipment(RentEquipmentRequest rentEquipmentRequest) throws ServiceException {
+	public Response rentEquipment(RentEquipmentRequest rentEquipmentRequest) throws ServiceException {
 		Response response = new Response();
 		
 		String titleEquipment = rentEquipmentRequest.getTitle();
@@ -32,7 +32,7 @@ public class ClientServiceImpl implements ClientService {
 			ClientDAO clientDAO = daoFactory.getClientDAO();
 			
 			try {
-				response = clientDAO.RentEquipment(rentEquipmentRequest);
+				response = clientDAO.rentEquipment(rentEquipmentRequest);
 			} catch (DAOException e) {
 				throw new ServiceException(e);
 			}	
@@ -47,7 +47,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public Response ReturnEquipment(RentEquipmentRequest returnEquipmentRequest) throws ServiceException {
+	public Response returnEquipment(RentEquipmentRequest returnEquipmentRequest) throws ServiceException {
 		Response response = new Response();
 		
 		String titleEquipment = returnEquipmentRequest.getTitle();
@@ -62,7 +62,7 @@ public class ClientServiceImpl implements ClientService {
 			ClientDAO clientDAO = daoFactory.getClientDAO();
 			
 			try {
-				response = clientDAO.ReturnEquipment(returnEquipmentRequest);
+				response = clientDAO.returnEquipment(returnEquipmentRequest);
 			} catch (DAOException e) {
 				throw new ServiceException(e);
 			}	

@@ -19,13 +19,13 @@ public class CommandProvider {
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put(NameCommand.RENT_EQUIPMENT_CMD, new RentEquipment());
-		list.put(NameCommand.RETURN_EQUIPMENT_CMD, new ReturnEquipment());
-		list.put(NameCommand.GET_RENT_LIST_CMD, new GetRentList());
-		list.put(NameCommand.GET_EQUIPMENT_LIST_CMD, new GetEquipmentList());
-		list.put(NameCommand.REGISTER_CLIENT_CMD, new RegisterClient());
-		list.put(NameCommand.INITIALIZATION_CMD, new Initialization());
-		list.put(NameCommand.ADD_NEW_EQUIPMENT_CMD, new AddNewEquipment());
+		list.put(CommandName.RENT_EQUIPMENT_CMD, new RentEquipment());
+		list.put(CommandName.RETURN_EQUIPMENT_CMD, new ReturnEquipment());
+		list.put(CommandName.GET_RENT_LIST_CMD, new GetRentList());
+		list.put(CommandName.GET_EQUIPMENT_LIST_CMD, new GetEquipmentList());
+		list.put(CommandName.REGISTER_CLIENT_CMD, new RegisterClient());
+		list.put(CommandName.INITIALIZATION_CMD, new Initialization());
+		list.put(CommandName.ADD_NEW_EQUIPMENT_CMD, new AddNewEquipment());
 	}
 
 	public static CommandProvider getInstance() {

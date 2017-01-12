@@ -26,7 +26,7 @@ public class ReturnEquipment implements Command {
 		ClientService clientService = factory.getClientService();
 		
 		try {
-			response = clientService.ReturnEquipment(returnEquipmentRequest);
+			response = clientService.returnEquipment(returnEquipmentRequest);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

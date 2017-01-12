@@ -6,8 +6,8 @@ import com.epam.store.bean.entity.Equipment;
 import com.epam.store.service.exception.ServiceException;
 
 public interface StoreService {
-	Response AddNewClient(Client client) throws ServiceException;
-	Response AddNewEquipment(Equipment equipment) throws ServiceException;
-	Response GetEquipmentList() throws ServiceException;
-	Response GetRentList() throws ServiceException;
+	Response addNewClient(Client client) throws ServiceException;
+	Response addNewEquipment(Equipment equipment) throws ServiceException;
+	Response getEquipmentList() throws ServiceException;
+	Response getRentList() throws ServiceException;
 }

@@ -17,7 +17,7 @@ public class GetEquipmentList implements Command {
 		StoreService storeService = factory.getStoreService();
 		
 		try {
-			response = storeService.GetEquipmentList();
+			response = storeService.getEquipmentList();
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

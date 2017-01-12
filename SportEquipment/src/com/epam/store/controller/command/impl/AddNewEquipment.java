@@ -29,7 +29,7 @@ public class AddNewEquipment implements Command {
 		StoreService storeService = factory.getStoreService();
 		
 		try {
-			response = storeService.AddNewEquipment(equipment);
+			response = storeService.addNewEquipment(equipment);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

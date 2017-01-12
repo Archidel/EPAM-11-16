@@ -19,7 +19,7 @@ import com.epam.store.bean.entity.Equipment;
 public class StoreDAOImpl implements StoreDAO {
 
 	@Override
-	public Response AddNewClient(Client client) throws DAOException {
+	public Response addNewClient(Client client) throws DAOException {
 		Response response = new Response();
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
@@ -51,7 +51,7 @@ public class StoreDAOImpl implements StoreDAO {
 	}
 
 	@Override
-	public Response AddNewEquipment(Equipment equipment) throws DAOException {
+	public Response addNewEquipment(Equipment equipment) throws DAOException {
 		Response response = new Response();
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
@@ -104,7 +104,7 @@ public class StoreDAOImpl implements StoreDAO {
 	}
 
 	@Override
-	public Response GetEquipmentList() throws DAOException {
+	public Response getEquipmentList() throws DAOException {
 		ListResponse listResponse = null;
 		ArrayList<Equipment> list = new ArrayList<Equipment>();
 		
@@ -161,7 +161,7 @@ public class StoreDAOImpl implements StoreDAO {
 	}
 
 	@Override
-	public Response GetRentList() throws DAOException {
+	public Response getRentList() throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}

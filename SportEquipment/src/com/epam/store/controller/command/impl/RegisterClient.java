@@ -35,7 +35,7 @@ public class RegisterClient implements Command {
 		Response response = null;
 		
 		try {
-			response = storeService.AddNewClient(client);
+			response = storeService.addNewClient(client);
 		} catch (ServiceException e) {
 			response = new Response();
 			response.setErrorMessage("You can not add this user");

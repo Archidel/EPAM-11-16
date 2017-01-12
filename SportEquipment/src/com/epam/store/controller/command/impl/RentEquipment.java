@@ -26,7 +26,7 @@ public class RentEquipment implements Command {
 		ClientService clientService = factory.getClientService();
 		
 		try {
-			response = clientService.RentEquipment(rentEquipmentRequest);
+			response = clientService.rentEquipment(rentEquipmentRequest);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
