@@ -10,11 +10,12 @@ import com.epam.store.controller.command.exception.CommandNotFoundException;
 public class Controller {
 
 	public Response doAction(Request request) throws CommandNotFoundException{
+		Response response = null;
+		Command command = null;
+		
 		String nameCommand = request.getCommand();
 		
 		CommandProvider provider = CommandProvider.getInstance();
-		Command command = null;
-		Response response = null;
 		
 		try {
 			command = provider.getCommand(nameCommand);

@@ -20,7 +20,7 @@ public class View {
 	public static void main(String [] args){
 		Response response = null;
 
-		//инициализация коннекшен пула - инициализация магазина
+		//*****************************Инициализация магазина (connection poll)*****************************//
 		Request initReq = new Request();
 		initReq.setCommand("initialization");
 		

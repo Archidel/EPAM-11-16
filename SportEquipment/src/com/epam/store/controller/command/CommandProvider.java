@@ -12,31 +12,33 @@ import com.epam.store.controller.command.impl.RegisterClient;
 import com.epam.store.controller.command.impl.RentEquipment;
 import com.epam.store.controller.command.impl.ReturnEquipment;
 
-final public class CommandProvider {
+public final class CommandProvider {
 	
 	private static CommandProvider instance = null;
 	private Map<String, Command> list = null;
 	
 	private CommandProvider() {
 		list = new HashMap<String, Command>();
-		list.put(CommandName.RENT_EQUIPMENT_CMD, new RentEquipment());
-		list.put(CommandName.RETURN_EQUIPMENT_CMD, new ReturnEquipment());
-		list.put(CommandName.GET_RENT_LIST_CMD, new GetRentList());
-		list.put(CommandName.GET_EQUIPMENT_LIST_CMD, new GetEquipmentList());
-		list.put(CommandName.REGISTER_CLIENT_CMD, new RegisterClient());
-		list.put(CommandName.INITIALIZATION_CMD, new Initialization());
-		list.put(CommandName.ADD_NEW_EQUIPMENT_CMD, new AddNewEquipment());
+		list.put(CommandName.RENT_EQUIPMENT, new RentEquipment());
+		list.put(CommandName.RETURN_EQUIPMENT, new ReturnEquipment());
+		list.put(CommandName.GET_RENT_LIST, new GetRentList());
+		list.put(CommandName.GET_EQUIPMENT_LIST, new GetEquipmentList());
+		list.put(CommandName.REGISTER_CLIENT, new RegisterClient());
+		list.put(CommandName.INITIALIZATION, new Initialization());
+		list.put(CommandName.ADD_NEW_EQUIPMENT, new AddNewEquipment());
 	}
 
 	public static CommandProvider getInstance() {
 		if(instance == null){
 			instance = new CommandProvider();
 		}
+		
 		return instance;
 	}
 
-	public Command getCommand(String nameCommand) throws CommandNotFoundException{
-		Command command = list.get(nameCommand);
+	public Command getCommand(String CommandName) throws CommandNotFoundException{
+		Command command = null;
+		command = list.get(CommandName);
 		
 		if(command == null){
 			throw new CommandNotFoundException();
