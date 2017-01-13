@@ -64,7 +64,7 @@ public class View {
 		*/
 		
 		//*****************************Показать список всех товараов что есть в наличии*****************************//
-		Request getEquipmentList = new Request();
+	/*	Request getEquipmentList = new Request();
 		getEquipmentList.setCommand("get_equipment_list");
 		
 		try {
@@ -73,7 +73,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-	
+	*/
 		//*****************************Берём в аренду снаряжения*****************************//
 		/*	БАГ
 		 * Нет высчита total price for rent table(подсчёт дней из внесённой даты)
@@ -100,7 +100,7 @@ public class View {
 		}
 	*/	
 		//*****************************Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения)*****************************// 
-		Client client_2 = new Client();
+	/*	Client client_2 = new Client();
 		client_2.setName("qwerty");
 		client_2.setSurname("qwerty");
 		
@@ -115,7 +115,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+	*/	
 		
 	}
 	

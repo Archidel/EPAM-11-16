@@ -14,8 +14,8 @@ public class RentEquipment implements Command {
 	@Override
 	public Response execute(Request request) throws CommandException {
 		Response response = null;
-		
 		RentEquipmentRequest rentEquipmentRequest = null;
+		
 		if(request instanceof RentEquipmentRequest){
 			rentEquipmentRequest = (RentEquipmentRequest) request;
 		}else{

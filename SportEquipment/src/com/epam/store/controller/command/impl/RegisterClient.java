@@ -14,8 +14,9 @@ public class RegisterClient implements Command {
 
 	@Override
 	public Response execute(Request request) throws CommandException {
-		
+		Response response = null;
 		RegisterClientRequest registerClient = null;
+		
 		if(request instanceof RegisterClientRequest){
 			registerClient = (RegisterClientRequest) request;
 		}else{
@@ -31,8 +32,6 @@ public class RegisterClient implements Command {
 		
 		ServiceFactory factory = ServiceFactory.getInstance();
 		StoreService storeService = factory.getStoreService();
-		
-		Response response = null;
 		
 		try {
 			response = storeService.addNewClient(client);

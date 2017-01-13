@@ -26,7 +26,7 @@ public class ClientDAOImpl implements ClientDAO {
 		EquipmentResponse equipmentResponse = new EquipmentResponse();
 		
 		DBResourceManager resourceManager = DBResourceManager.getInstance();
-		int amountOfEquipment = Integer.parseInt(resourceManager.getValue(DBParameter.DB_AMOUNT_OF_EQUIPMENT)); //the amount of equipment that can be rented
+		int amountOfEquipment = Integer.parseInt(resourceManager.getValue(DBParameter.DB_AMOUNT_OF_EQUIPMENT));
 		
 		String titleEquipment = rentEquipmentRequest.getTitle();
 		Client client = rentEquipmentRequest.getClient();

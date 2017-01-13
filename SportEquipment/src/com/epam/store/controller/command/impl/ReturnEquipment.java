@@ -14,8 +14,8 @@ public class ReturnEquipment implements Command {
 	@Override
 	public Response execute(Request request) throws CommandException {	
 		Response response = null;
-		
 		RentEquipmentRequest returnEquipmentRequest = null;
+		
 		if(request instanceof RentEquipmentRequest){
 			returnEquipmentRequest = (RentEquipmentRequest) request;
 		}else{
@@ -30,6 +30,7 @@ public class ReturnEquipment implements Command {
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
+		
 		return response;
 	}
 	

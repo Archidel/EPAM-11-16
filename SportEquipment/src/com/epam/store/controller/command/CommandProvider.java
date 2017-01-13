@@ -12,7 +12,7 @@ import com.epam.store.controller.command.impl.RegisterClient;
 import com.epam.store.controller.command.impl.RentEquipment;
 import com.epam.store.controller.command.impl.ReturnEquipment;
 
-public class CommandProvider {
+final public class CommandProvider {
 	
 	private static CommandProvider instance = null;
 	private Map<String, Command> list = null;

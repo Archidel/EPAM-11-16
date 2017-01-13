@@ -24,7 +24,5 @@ public class GetEquipmentList implements Command {
 	
 		return response;
 	}
-
-
-
+	
 }

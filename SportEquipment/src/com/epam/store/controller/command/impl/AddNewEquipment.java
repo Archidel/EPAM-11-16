@@ -15,8 +15,8 @@ public class AddNewEquipment implements Command {
 	@Override
 	public Response execute(Request request) throws CommandException {
 		Response response = null;
-		
 		EquipmentRequest equipmentRequest = null;
+		
 		if(request instanceof EquipmentRequest){
 			equipmentRequest = (EquipmentRequest) request;
 		}else{

@@ -13,6 +13,7 @@ public class Initialization implements Command {
 	@Override
 	public Response execute(Request request) throws CommandException {
 		Response response = null;
+		
 		ServiceFactory factory = ServiceFactory.getInstance();
 		InitializationService initializationService = factory.getInitializationService();
 		
@@ -21,6 +22,7 @@ public class Initialization implements Command {
 		} catch (ServiceException e) {
 			throw new CommandException(e);
 		}	
+		
 		return response;
 	}
 	
