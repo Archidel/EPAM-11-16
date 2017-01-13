@@ -53,18 +53,18 @@ public class ConnectionPool implements Closeable{
 		}
 	}
 	
-	public Connection take() throws InterruptedException{ // запращиваем соединение
-		Connection con = freeConnection.take();	// извлекаем из arrayBlockingQue
-		busyConnection.put(con);	// помещаем в очередь занятых коннектионов
+	public Connection take() throws InterruptedException{
+		Connection con = freeConnection.take();
+		busyConnection.put(con);
 		return con;
 	}
 	
-	public void free(Connection con) throws InterruptedException, DAOException{	//возвращает коннекшн в очередь
-		if(con == null){ 	// проврека если пользователь дурак, вдруг передат null или хакЭр
+	public void free(Connection con) throws InterruptedException, DAOException{
+		if(con == null){
 			throw new DAOException("Connection is null");
 		}
 		
-		Connection tempConnection = con;	// вариант безопасности кода
+		Connection tempConnection = con;
 		con = null;
 		busyConnection.remove(tempConnection);
 		freeConnection.put(tempConnection);
@@ -78,10 +78,8 @@ public class ConnectionPool implements Closeable{
 	public void close() throws IOException {
 		ArrayList<Connection> listConnection = new ArrayList<Connection>();		
 		
-		for(int i = 0; i < poolsize; i++){	//перемещение из 2х колелекций  в 3ю
-			listConnection.add(busyConnection.poll());
-			listConnection.add(freeConnection.poll());
-		}
+		listConnection.addAll(busyConnection);
+		listConnection.addAll(freeConnection);
 	
 		for(Connection connection : listConnection){
 			try {
@@ -93,6 +91,5 @@ public class ConnectionPool implements Closeable{
 			}
 		}
 	}
+
 }
-
-
