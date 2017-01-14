@@ -10,6 +10,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 import com.epam.store.DAO.exception.DAOException;
+import com.epam.store.controller.logging.StoreLogger;
 
 public class ConnectionPool implements Closeable{
 	private static final ConnectionPool instance = new ConnectionPool();
@@ -45,7 +46,7 @@ public class ConnectionPool implements Closeable{
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
 		
 		for(int i = 0; i < poolsize; i++){
@@ -87,7 +88,7 @@ public class ConnectionPool implements Closeable{
 					connection.close();
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
+				StoreLogger.getLog().error(e);
 			}
 		}
 	}

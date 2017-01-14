@@ -15,6 +15,7 @@ import com.epam.store.bean.ListResponse;
 import com.epam.store.bean.Response;
 import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
+import com.epam.store.controller.logging.StoreLogger;
 
 public class StoreDAOImpl implements StoreDAO {
 
@@ -47,6 +48,7 @@ public class StoreDAOImpl implements StoreDAO {
 		}finally{
 			close(pool, con, null, preparedStatement, null);
 		}
+		
 		return response;
 	}
 
@@ -100,6 +102,7 @@ public class StoreDAOImpl implements StoreDAO {
 		}finally{
 			close(pool, con, statement, preparedStatement, resultSet);
 		}
+		
 		return response;
 	}
 
@@ -113,10 +116,8 @@ public class StoreDAOImpl implements StoreDAO {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
-		
 		try {
 			con = pool.take();
-			
 			statement = con.createStatement();
 			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
 			
@@ -135,6 +136,8 @@ public class StoreDAOImpl implements StoreDAO {
 				}
 			}
 			
+			/* Почему бы не добавить эту проверку на слой view printer answer
+			 */
 			if(list.size() == 0){
 				listResponse = new ListResponse();
 				listResponse.setMessage("List is empty");
@@ -157,6 +160,7 @@ public class StoreDAOImpl implements StoreDAO {
 		}finally{
 			close(pool, con, statement, null, resultSet);
 		}
+		
 		return listResponse;
 	}
 
@@ -166,11 +170,41 @@ public class StoreDAOImpl implements StoreDAO {
 		return null;
 	}
 
+
+	@Override
+	public Client getClient(String name, String surname) throws DAOException {
+		
+		
+		return null;
+	}
+
 	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
-		try { if (resultSet != null) resultSet.close(); } catch (SQLException e) {};
-		try { if (statement != null) statement.close(); } catch (SQLException e) {};
-		try { if (preparedStatement != null) preparedStatement.close(); } catch (SQLException e) {};
-		try { if (pool != null) pool.free(con); } catch (InterruptedException | DAOException e) {}
+		try { 
+			if (resultSet != null) 
+				resultSet.close(); 
+			} catch (SQLException e) {
+				StoreLogger.getLog().error("ResultSet isn't closed", e);
+			}
+		
+		try {
+			if (statement != null) 
+				statement.close(); 
+			} catch (SQLException e) {
+				StoreLogger.getLog().error("Statement isn't closed", e);	
+			}
+		
+		try { 
+			if (preparedStatement != null)
+				preparedStatement.close(); 
+			} catch (SQLException e) {
+				StoreLogger.getLog().error("PrepareStatement isn't closed", e);
+			}
+		
+		try { 
+			if (pool != null) pool.free(con); 
+			} catch (InterruptedException | DAOException e) {
+				StoreLogger.getLog().error("Connection isn't return to the pool", e);
+			}
 	}
 	
 }

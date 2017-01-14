@@ -8,10 +8,8 @@ public class PrintAnswer {
 	public static void Dispatcher(Response response){
 		
 		if(!response.isStatusError()){
-			System.out.println(response.getMessage());
 			StoreLogger.getLog().info(response.getMessage());
 		}else{
-			System.err.println(response.getErrorMessage());
 			StoreLogger.getLog().error(response.getErrorMessage());
 		}
 		

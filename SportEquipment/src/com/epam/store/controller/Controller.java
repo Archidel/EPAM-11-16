@@ -6,6 +6,7 @@ import com.epam.store.controller.command.Command;
 import com.epam.store.controller.command.CommandProvider;
 import com.epam.store.controller.command.exception.CommandException;
 import com.epam.store.controller.command.exception.CommandNotFoundException;
+import com.epam.store.controller.logging.StoreLogger;
 
 public class Controller {
 
@@ -21,9 +22,9 @@ public class Controller {
 			command = provider.getCommand(nameCommand);
 			response = command.execute(request);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		} catch (CommandException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
 		
 		if(command == null){

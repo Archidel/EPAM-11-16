@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import com.epam.store.DAO.InitializationDAO;
 import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.bean.Response;
+import com.epam.store.controller.logging.StoreLogger;
 
 public class InitializationDAOImpl implements InitializationDAO {
 
@@ -18,8 +19,9 @@ public class InitializationDAOImpl implements InitializationDAO {
 		} catch (SQLException e) {
 			response.setErrorMessage("Database has not been initialized");
 			response.setStatusError(true);
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
+		
 		return response;
 	}
 	

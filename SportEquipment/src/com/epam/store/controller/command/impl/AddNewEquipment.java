@@ -6,6 +6,7 @@ import com.epam.store.bean.Response;
 import com.epam.store.bean.entity.Equipment;
 import com.epam.store.controller.command.Command;
 import com.epam.store.controller.command.exception.CommandException;
+import com.epam.store.controller.logging.StoreLogger;
 import com.epam.store.service.StoreService;
 import com.epam.store.service.exception.ServiceException;
 import com.epam.store.service.factory.ServiceFactory;
@@ -31,7 +32,7 @@ public class AddNewEquipment implements Command {
 		try {
 			response = storeService.addNewEquipment(equipment);
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
 	
 		return response;

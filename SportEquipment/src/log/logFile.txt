@@ -1,0 +1,33 @@
+2017-01-14 12:00:02,403 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:00:40,776 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:43,291 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:45,112 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:46,741 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:46,812 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:47,374 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:49,472 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,374 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,391 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,428 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,527 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,553 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,758 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:50,759 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:51,724 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:51,733 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:51,889 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:51,910 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:52,070 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:03:52,128 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:05:15,398 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:05:41,986 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:05:46,890 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:05:58,461 [main] [main] INFO  logfile - Database has been initialized
+2017-01-14 12:06:40,049 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:06:41,567 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:07:30,414 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:11:26,615 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-14 12:12:30,541 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-14 12:19:08,056 [main] INFO  logfile - Database has been initialized
+2017-01-14 12:19:25,090 [main] ERROR logfile - java.lang.ClassNotFoundException: org.gjt.mm.mysql.Driver 1
+2017-01-14 12:19:25,407 [main] INFO  logfile - Database has been initialized

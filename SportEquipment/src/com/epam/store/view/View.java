@@ -12,6 +12,7 @@ import com.epam.store.bean.entity.Rent;
 import com.epam.store.controller.Controller;
 import com.epam.store.controller.command.exception.CommandNotFoundException;
 import com.epam.store.controller.command.impl.RentEquipment;
+import com.epam.store.controller.logging.StoreLogger;
 
 public class View {
 	
@@ -19,7 +20,8 @@ public class View {
 	
 	public static void main(String [] args){
 		Response response = null;
-
+		StoreLogger.getInstance(); // инициализация логгера
+		
 		//*****************************Инициализация магазина (connection poll)*****************************//
 		Request initReq = new Request();
 		initReq.setCommand("initialization");
