@@ -76,7 +76,6 @@ public class View {
 		}
 	    
 		//*****************************Берём в аренду снаряжения*****************************//
-		// Нет высчита total price for rent table(подсчёт дней из внесённой даты)
 		
 		Client clinet = new Client();
 		clinet.setName("Blabla");

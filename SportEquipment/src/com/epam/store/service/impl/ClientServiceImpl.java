@@ -22,7 +22,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Response rentEquipment(RentEquipmentRequest rentEquipmentRequest) throws ServiceException {
 		Response response = null;
-		//Количество снаряжения которое может взять клинт. 
+		//Количество снаряжения которое может взять клиент. 
 		DBResourceManager resourceManager = DBResourceManager.getInstance();
 		int amountOfEquipment = Integer.parseInt(resourceManager.getValue(DBParameter.DB_AMOUNT_OF_EQUIPMENT));
 		
@@ -64,7 +64,6 @@ public class ClientServiceImpl implements ClientService {
 					throw new ServiceException(e);
 				}
 				
-
 				//Проверка на количество взятых в аренду снаряжений клиентом
 				if(countRentedEquipmentByClient >= amountOfEquipment){
 					response = new Response();
@@ -155,9 +154,8 @@ public class ClientServiceImpl implements ClientService {
 	    
 	    int amountdays = period.getDays() + (period.getMonths() * 30);
 	    
-	    if(period.getYears() != 0){
+	    if(period.getYears() != 0) 
 	    	amountdays = period.getYears() * 365;
-	    }
 	    
 	    return amountdays * amountdays;
 	}
