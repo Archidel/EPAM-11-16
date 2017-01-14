@@ -76,7 +76,6 @@ public class View {
 		}
 	    
 		//*****************************Берём в аренду снаряжения*****************************//
-		
 		Client clinet = new Client();
 		clinet.setName("Blabla");
 		clinet.setSurname("Blabla");
