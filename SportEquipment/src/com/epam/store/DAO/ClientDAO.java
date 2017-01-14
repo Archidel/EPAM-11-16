@@ -6,5 +6,5 @@ import com.epam.store.bean.Response;
 
 public interface ClientDAO {
 	Response rentEquipment(RentEquipmentRequest rentEquipmentRequest) throws DAOException;
-	Response returnEquipment(RentEquipmentRequest returnEquipmentRequest) throws DAOException;
+	Response returnEquipment(RentEquipmentRequest returnEquipmentRequest, int idEquipment) throws DAOException;
 }	

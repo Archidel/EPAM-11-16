@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 public class StoreLogger {
+	
 	private static StoreLogger instance = null;
 	private static final String CONFIG_PATH  = "src/resources/log4j.properties";
 	private static final String TYPE_LOGGING = "logfile";

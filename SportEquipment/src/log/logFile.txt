@@ -362,3 +362,99 @@
 2017-01-15 00:04:28,786 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
 2017-01-15 00:04:28,787 [main] INFO  logfile - Equipment list was added
 2017-01-15 00:04:28,790 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-15 00:20:11,490 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:20:11,497 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:20:11,498 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:20:11,605 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:20:16,264 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:20:16,271 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:20:16,272 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:20:16,367 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:51:52,005 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:51:52,012 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:51:52,013 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:51:52,192 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:53:59,676 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:53:59,682 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:53:59,691 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:53:59,773 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:55:41,625 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:55:41,632 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:55:41,641 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:55:41,772 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:58:11,938 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:58:11,945 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:58:11,946 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:58:12,037 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: No value specified for parameter 1
+2017-01-15 00:59:57,086 [main] INFO  logfile - Database has been initialized
+2017-01-15 00:59:57,092 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 00:59:57,094 [main] INFO  logfile - Equipment list was added
+2017-01-15 00:59:57,214 [main] INFO  logfile - Equipment Коньки was returned by Jecki Chan
+2017-01-15 01:00:04,715 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:00:04,723 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:00:04,725 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:00:04,801 [main] INFO  logfile - Equipment Коньки was returned by Jecki Chan
+2017-01-15 01:01:05,979 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:01:05,986 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:01:05,987 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:01:06,082 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:01:33,696 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:01:33,702 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:01:33,703 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:01:33,762 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:01:36,303 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:01:36,311 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:01:36,318 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:01:36,320 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:01:36,331 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:01:36,333 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:01:36,396 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:01:36,426 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:02:23,707 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:02:23,714 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:02:23,715 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:02:23,818 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:02:26,065 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:02:26,071 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:02:26,072 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:02:26,123 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:02:46,266 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:02:46,274 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:02:46,275 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:02:46,320 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:02:47,497 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:02:47,504 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:02:47,505 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:02:47,553 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:02:49,228 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:02:49,234 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:02:49,236 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:02:49,287 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:28,668 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:28,674 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:28,676 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:28,742 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:31,555 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:31,562 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:31,564 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:31,660 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:34,462 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:34,477 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:34,479 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:34,630 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:34,633 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:34,647 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:34,649 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:34,754 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:37,521 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:37,528 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:37,530 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:37,643 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:39,086 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:39,092 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:39,094 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:39,221 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 01:06:40,224 [main] INFO  logfile - Database has been initialized
+2017-01-15 01:06:40,231 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 01:06:40,232 [main] INFO  logfile - Equipment list was added
+2017-01-15 01:06:40,343 [main] INFO  logfile - Equipment Коньки was returned by Will Smith

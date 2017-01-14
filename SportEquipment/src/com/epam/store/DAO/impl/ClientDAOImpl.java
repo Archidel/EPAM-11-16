@@ -86,7 +86,7 @@ public class ClientDAOImpl implements ClientDAO {
 	}
 
 	@Override
-	public Response returnEquipment(RentEquipmentRequest returnEquipmentRequest) throws DAOException {
+	public Response returnEquipment(RentEquipmentRequest returnEquipmentRequest, int idEquipment) throws DAOException {
 		Response response = new Response();
 		
 		String titleEquipment = returnEquipmentRequest.getTitle();
@@ -101,57 +101,18 @@ public class ClientDAOImpl implements ClientDAO {
 		try {
 			con = pool.take();
 			statement = con.createStatement();
-			
-			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_NAME_SURNAME_FROM_CLIENT);
-			int idClient = 0;
-			while(resultSet.next()){
-				if(resultSet.getString(2).equalsIgnoreCase(client.getName()) && resultSet.getString(3).equalsIgnoreCase(client.getSurname())){
-					idClient = resultSet.getInt(1);
-					break;
-				}
-			}
-			resultSet.close();
-			//Поиск снаряжения и по title и нахождение его ID +  
-			//Изменение статуса в таблице rent
-			
-			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
-			
-			System.out.println(idClient);
-			
-			if(idClient != 0){ // + 
-				System.out.println("idClient != 0");
-				
-				int idEquipment = 0; 
-				while(resultSet.next()){ 
-					if(resultSet.getString(3).equalsIgnoreCase(titleEquipment)){
-						idEquipment = resultSet.getInt(1);
-						break;
-					}
-				}
-				
-				System.out.println("# = " + idEquipment);
-				if(idEquipment != 0){
-					preparedStatement = con.prepareStatement(SQLCommand.UPDATE_CHANGE_STATUS_FROM_RENT);
-					preparedStatement.setBoolean(1, true);
-					preparedStatement.setInt(2, idClient);
-					
-					/* Проблема в изменении статуа Rent item т.к. для профитного SQl требуется после слова WHERE 2 значения e_id(equipment ID), c_id(Client ID)
-					 */
-					preparedStatement.executeUpdate();
-					preparedStatement.close();
-					
-					preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_INCREMENT_FROM_EQUIPMENT);
-					preparedStatement.executeUpdate();
-					
-					response.setMessage("Equipment " + titleEquipment + " was returned by " + client.getName() + " " + client.getSurname());
-				}else{
-					response.setErrorMessage("This equipment is not found in data base");
-					response.setStatusError(true);
-				}
-			}else{
-				response.setErrorMessage("This client is not registered in the database");
-				response.setStatusError(true);
-			}
+			preparedStatement = con.prepareStatement(SQLCommand.UPDATE_CHANGE_STATUS_FROM_RENT);
+			preparedStatement.setBoolean(1, true);
+			preparedStatement.setInt(2, client.getId());
+			preparedStatement.setInt(3, idEquipment);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+
+			preparedStatement = con.prepareStatement(SQLCommand.UPDATE_QUANTITY_INCREMENT_FROM_EQUIPMENT);
+			preparedStatement.setInt(1, idEquipment);
+			preparedStatement.executeUpdate();
+
+			response.setMessage("Equipment " + titleEquipment + " was returned by " + client.getName() + " " + client.getSurname());
 
 		} catch (InterruptedException e) {
 			response.setErrorMessage("Attempt to return a client the equipment fails");
@@ -160,6 +121,7 @@ public class ClientDAOImpl implements ClientDAO {
 		} catch (SQLException e) {
 			response.setErrorMessage("Error database query");
 			response.setStatusError(true);
+			e.printStackTrace();
 			throw new DAOException(e);
 		}finally{
 			close(pool, con, statement, preparedStatement, resultSet);

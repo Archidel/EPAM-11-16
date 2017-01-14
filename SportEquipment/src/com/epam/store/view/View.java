@@ -76,7 +76,7 @@ public class View {
 		}
 	    
 		//*****************************Берём в аренду снаряжения*****************************//
-		Client clinet = new Client();
+/*		Client clinet = new Client();
 		clinet.setName("Blabla");
 		clinet.setSurname("Blabla");
 		
@@ -95,12 +95,12 @@ public class View {
 			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			StoreLogger.getLog().error(e);
-		}
+		}*/
 		
 		//*****************************Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения)*****************************// 
-	/*	Client client_2 = new Client();
-		client_2.setName("qwerty");
-		client_2.setSurname("qwerty");
+		Client client_2 = new Client();
+		client_2.setName("Will");
+		client_2.setSurname("Smith");
 		
 		RentEquipmentRequest returnEquipmentRequest = new RentEquipmentRequest();
 		returnEquipmentRequest.setClient(client_2);
@@ -113,7 +113,7 @@ public class View {
 		} catch (CommandNotFoundException e) {
 			StoreLogger.getLog().error(e);
 		}	
-		*/
+		
 	}
 	
 	private static String DateRent(int year, int month, int day){
@@ -122,12 +122,3 @@ public class View {
 	}
 
 }
-
-/*
-1. регистрация
-2. показать лист 
-3. взять 3 предмета 
-	потом еще 1
-4. показать список арендованных 
-*/
-

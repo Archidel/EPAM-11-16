@@ -14,6 +14,7 @@ public final class SQLCommand {
 	public static final String SELECT_IDEQUIPMENT_IDCLIENT_STATUS_FROM_RENT = "SELECT e_id, c_id, r_status FROM rent";
 	public static final String SELECT_TITLE_PRICE_FROM_EQUIPMENT = "SELECT e_title, e_price FROM equipment";
 	public static final String SELECT_TITLE_QUANTITY_FROM_EQUIPMENT = "SELECT e_title, e_quantity FROM equipment";
+	public static final String SELECT_TITLE_IDEQUIPMENT_FROM_EQUIPMENT = "SELECT e_title, e_id FROM equipment";
 	//Insert
 	public static final String INSERT_CLIENT = "INSERT INTO client (c_name, c_surname) VALUES (?,?)";
 	public static final String INSERT_EQUIPMENT = "INSERT INTO equipment (e_category, e_title, e_price, e_quantity) VALUE (?,?,?,?)";
@@ -22,6 +23,6 @@ public final class SQLCommand {
 	public static final String UPDATE_QUANTITY_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity + ? WHERE e_id = ?";
 	public static final String UPDATE_QUANTITY_INCREMENT_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity + 1 WHERE e_id = ?";
 	public static final String UPDATE_QUANTITY_DECREMENT_FROM_EQUIPMENT = "UPDATE equipment SET e_quantity = e_quantity - 1 WHERE e_id = ?";
-	public static final String UPDATE_CHANGE_STATUS_FROM_RENT = "UPDATE rent SET r_status = ? WHERE c_id = ?";
+	public static final String UPDATE_CHANGE_STATUS_FROM_RENT = "UPDATE rent SET r_status = ? WHERE c_id = ? AND e_id=?";
 	
 }

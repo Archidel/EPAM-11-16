@@ -120,14 +120,41 @@ public class ClientServiceImpl implements ClientService {
 		boolean clientSurnameIsValid = ValidationData.currentData(client.getSurname());
 		
 		if(titleEquipmentIsValid && clientNameIsValid && clientSurnameIsValid){
+			
 			DAOFactory daoFactory = DAOFactory.getInstance();
+			StoreDAO storeDAO = daoFactory.getStoreDAO();
 			ClientDAO clientDAO = daoFactory.getClientDAO();
 			
+			boolean existClient = false;
+			
 			try {
-				response = clientDAO.returnEquipment(returnEquipmentRequest);
+				existClient = storeDAO.existClientInDatabase(client.getName(), client.getSurname()); // Зарегестрирован ли пользователь в базе данных
 			} catch (DAOException e) {
 				throw new ServiceException(e);
-			}	
+			}
+			
+			if(existClient){
+				int idClient = 0;
+				int idEquipment = 0;
+				
+				try {
+					idClient = storeDAO.getIdClient(client.getName(), client.getSurname()); //Определяем id клиента в базе данных
+					client.setId(idClient);
+					idEquipment = storeDAO.getIdEquipment(titleEquipment);
+				} catch (DAOException e) {
+					throw new ServiceException(e);
+				}
+			
+				try {
+					response = clientDAO.returnEquipment(returnEquipmentRequest, idEquipment);
+				} catch (DAOException e) {
+					throw new ServiceException(e);
+				}
+				
+			}else{
+				response = new Response();
+				response.setMessage("Client " + client.getSurname() + " " + client.getName() + " is not registered in the database");
+			}
 			
 		}else{
 			response = new Response();

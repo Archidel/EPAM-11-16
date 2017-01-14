@@ -324,6 +324,37 @@ public class StoreDAOImpl implements StoreDAO {
 		return quantityEquipment;
 	}
 	
+	@Override
+	public int getIdEquipment(String titleEquipment) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int idEquipment = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_TITLE_IDEQUIPMENT_FROM_EQUIPMENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getString(1).equalsIgnoreCase(titleEquipment))){
+					idEquipment = resultSet.getInt(2);
+					break;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+	
+		return idEquipment;
+	}
+	
 	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
 		try { 
 			if (resultSet != null) 
