@@ -31,3 +31,160 @@
 2017-01-14 12:19:08,056 [main] INFO  logfile - Database has been initialized
 2017-01-14 12:19:25,090 [main] ERROR logfile - java.lang.ClassNotFoundException: org.gjt.mm.mysql.Driver 1
 2017-01-14 12:19:25,407 [main] INFO  logfile - Database has been initialized
+2017-01-14 13:21:50,950 [main] INFO  logfile - Database has been initialized
+2017-01-14 13:24:14,325 [main] INFO  logfile - Database has been initialized
+2017-01-14 13:24:15,944 [main] INFO  logfile - Equipment was added in store
+2017-01-14 13:24:53,679 [main] INFO  logfile - Database has been initialized
+2017-01-14 13:24:53,805 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 13:48:17,749 [main] INFO  logfile - Database has been initialized
+2017-01-14 13:48:17,848 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:08:32,546 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:08:32,699 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:17:21,799 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:17:21,926 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:17:21,929 [main] INFO  logfile - Client is already registered in the database and doesn't require new registration
+2017-01-14 14:18:20,083 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:18:20,145 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:18:20,161 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:18:20,181 [main] INFO  logfile - Clientqwerty qwertyis already registered in the database and doesn't require new registration
+2017-01-14 14:18:20,226 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:18:20,285 [main] INFO  logfile - Clientqwerty qwertyis already registered in the database and doesn't require new registration
+2017-01-14 14:18:29,210 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:18:29,307 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:18:29,311 [main] INFO  logfile - Client qwerty qwertyis already registered in the database and doesn't require new registration
+2017-01-14 14:18:52,318 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:18:52,465 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:18:52,467 [main] INFO  logfile - Client qwerty qwerty is already registered in the database and doesn't require new registration
+2017-01-14 14:19:44,325 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:19:44,409 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:19:44,413 [main] INFO  logfile - Client is already registered in the database and doesn't require new registration
+2017-01-14 14:19:54,990 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:19:55,119 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:19:55,121 [main] INFO  logfile - Client qwerty qwerty is already registered in the database and doesn't require new registration
+2017-01-14 14:21:32,323 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:21:32,448 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:23:10,537 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:23:10,626 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:23:10,704 [main] INFO  logfile - Client was added in register
+2017-01-14 14:24:22,695 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:24:22,795 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:24:22,800 [main] INFO  logfile - Client Napoleon Bonaparte is already registered in the database and doesn't require new registration
+2017-01-14 14:24:28,957 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:24:29,084 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:24:29,086 [main] INFO  logfile - Client Napoleon Bonaparte is already registered in the database and doesn't require new registration
+2017-01-14 14:25:50,001 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:25:50,101 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:25:50,211 [main] INFO  logfile - Client was added in register
+2017-01-14 14:28:08,220 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:28:08,320 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:28:08,373 [main] INFO  logfile - Client MoPo3 DeD was added in register
+2017-01-14 14:28:16,054 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:28:16,185 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:28:16,208 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 14:28:18,322 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:28:18,374 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:28:18,377 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 14:30:14,453 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:30:14,569 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:30:14,573 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 14:30:14,585 [main] INFO  logfile - Equipment list was added
+2017-01-14 14:31:03,608 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:31:03,669 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:31:03,672 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 14:31:03,676 [main] INFO  logfile - Equipment list was added
+2017-01-14 14:31:03,716 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 14:57:42,293 [main] INFO  logfile - Database has been initialized
+2017-01-14 14:57:42,378 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 14:57:42,382 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 14:57:42,385 [main] INFO  logfile - Equipment list was added
+2017-01-14 14:57:42,402 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:08:04,279 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:08:04,379 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:08:04,444 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:08:04,445 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:08:04,448 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:09:49,728 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:09:49,817 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:09:49,835 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:09:49,837 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:09:49,845 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:10:56,848 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:10:56,991 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:10:57,002 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:10:57,006 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:10:57,024 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:19:16,943 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:19:17,021 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:19:17,032 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:19:17,034 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:19:17,043 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:19:26,759 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:19:26,843 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:19:26,852 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:19:26,854 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:19:26,863 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:19:36,552 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:19:36,632 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:19:36,648 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:19:36,652 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:19:36,663 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:20:57,574 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:20:57,657 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:20:57,663 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:20:57,665 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:20:57,672 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:21:27,327 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:27,380 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:27,383 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:27,384 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:27,500 [main] INFO  logfile - Equipment Коньки was rented by DeD MoPo3
+2017-01-14 15:21:37,133 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:37,192 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:37,195 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:37,196 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:37,314 [main] INFO  logfile - Equipment Коньки was rented by DeD MoPo3
+2017-01-14 15:21:44,903 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:45,015 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:45,036 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:45,039 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:45,103 [main] INFO  logfile - Equipment Коньки was rented by DeD MoPo3
+2017-01-14 15:21:47,447 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:47,537 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:47,543 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:47,546 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:47,555 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:21:51,737 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:51,826 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:51,829 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:51,830 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:51,832 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:21:53,231 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:53,293 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:53,299 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:53,301 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:53,308 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:21:55,465 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:55,571 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:55,574 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:55,575 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:55,578 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:21:55,605 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:21:55,693 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:21:55,695 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:21:55,696 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:21:55,699 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:23:01,551 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:23:01,641 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:23:01,650 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:23:01,653 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:23:01,663 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:30:53,126 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:30:53,241 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:30:53,245 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:30:53,248 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:30:53,262 [main] ERROR logfile - The client has rented maximum amount of equipment
+2017-01-14 15:33:35,445 [main] INFO  logfile - Database has been initialized
+2017-01-14 15:33:35,536 [main] INFO  logfile - Equipment was added in store equipment
+2017-01-14 15:33:35,539 [main] INFO  logfile - Client MoPo3 DeD is already registered in the database and doesn't require new registration
+2017-01-14 15:33:35,541 [main] INFO  logfile - Equipment list was added
+2017-01-14 15:33:35,550 [main] ERROR logfile - The client has rented maximum amount of equipment

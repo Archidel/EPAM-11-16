@@ -22,19 +22,19 @@ public class View {
 		Response response = null;
 		StoreLogger.getInstance(); // инициализация логгера
 		
-		//*****************************Инициализация магазина (connection poll)*****************************//
+		//*****************************Инициализация магазина (connection pool)*****************************//
 		Request initReq = new Request();
 		initReq.setCommand("initialization");
 		
 		try {
 			response = controller.doAction(initReq);
-			PrintAnswer.Dispatcher(response);  // вывод ответа в консоль
+			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
 		
-		//*****************************Добавить товары в магазин*****************************//
-	/*	Equipment equipment = new Equipment();
+		//*****************************Добавление снаряжения в магазин*****************************//
+		Equipment equipment = new Equipment();
 		equipment.setTitle("Коньки");
 		equipment.setCategory("Sport equipment");
 		equipment.setPrice(20);
@@ -46,61 +46,59 @@ public class View {
 		
 		try {
 			response = controller.doAction(equipmentRequest);
-			PrintAnswer.Dispatcher(response);
-		} catch (CommandNotFoundException e1) {
-			e1.printStackTrace();
+			PrintResponse.Dispatcher(response);
+		} catch (CommandNotFoundException e) {
+			StoreLogger.getLog().error(e);
 		}
-	*/	
-		//*****************************Регистрация клиента который хочет взять снаряжения в аренду*****************************//
-	/*	RegisterClientRequest registerClient = new RegisterClientRequest();
+		
+		//*****************************Регистрация/логинизация клиента который хочет взять снаряжения в аренду*****************************//
+		RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("qwerty");
-		registerClient.setSurname("qwerty");
+		registerClient.setName("DeD");
+		registerClient.setSurname("MoPo3");
 		
 		try {
 			response = controller.doAction(registerClient);
-			PrintAnswer.Dispatcher(response);
+			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
-		*/
 		
 		//*****************************Показать список всех товараов что есть в наличии*****************************//
-	/*	Request getEquipmentList = new Request();
+		Request getEquipmentList = new Request();
 		getEquipmentList.setCommand("get_equipment_list");
 		
 		try {
 			response = controller.doAction(getEquipmentList);
-			PrintAnswer.Dispatcher(response);
+			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
-	*/
+	    
 		//*****************************Берём в аренду снаряжения*****************************//
-		/*	БАГ
-		 * Нет высчита total price for rent table(подсчёт дней из внесённой даты)
-		 *//*
-		Client clinet_1 = new Client();
-		clinet_1.setName("qwerty");
-		clinet_1.setSurname("qwerty");
+		// Нет высчита total price for rent table(подсчёт дней из внесённой даты)
+		
+		Client clinet = new Client();
+		clinet.setName("DeD");
+		clinet.setSurname("MoPo3");
 		
 		Rent rentEquipment = new Rent();
 		rentEquipment.setDateFrom(DateRent(2016, 12, 31));
 		rentEquipment.setDateTo(DateRent(2017, 10, 24));
-	
+	    
 		RentEquipmentRequest rentEquipmentRequest = new RentEquipmentRequest();
-		rentEquipmentRequest.setClient(clinet_1);
+		rentEquipmentRequest.setClient(clinet);
 		rentEquipmentRequest.setRentEquipment(rentEquipment);
 		rentEquipmentRequest.setCommand("rent_equipment");
 		rentEquipmentRequest.setTitle("Коньки");
 		
 		try {
 			response = controller.doAction(rentEquipmentRequest);
-			PrintAnswer.Dispatcher(response);
+			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
+			StoreLogger.getLog().error(e);
 		}
-	*/	
+		
 		//*****************************Возвращаем снаряжение в магазин (возвращать будем по названию снаряжения)*****************************// 
 	/*	Client client_2 = new Client();
 		client_2.setName("qwerty");
@@ -113,11 +111,10 @@ public class View {
 		
 		try {
 			response = controller.doAction(returnEquipmentRequest);
-			PrintAnswer.Dispatcher(response);
+			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
-			e.printStackTrace();
-		}
-	*/	
+			StoreLogger.getLog().error(e);
+		}*/	
 		
 	}
 	

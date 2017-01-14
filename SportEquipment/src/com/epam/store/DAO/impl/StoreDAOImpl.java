@@ -13,14 +13,13 @@ import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.bean.ListResponse;
 import com.epam.store.bean.Response;
-import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
 import com.epam.store.controller.logging.StoreLogger;
 
 public class StoreDAOImpl implements StoreDAO {
 
 	@Override
-	public Response addNewClient(Client client) throws DAOException {
+	public Response addNewClient(String name, String surname) throws DAOException {
 		Response response = new Response();
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
@@ -31,11 +30,11 @@ public class StoreDAOImpl implements StoreDAO {
 			con = pool.take();
 			
 			preparedStatement = con.prepareStatement(SQLCommand.INSERT_CLIENT);
-			preparedStatement.setString(1, client.getName());
-			preparedStatement.setString(2, client.getSurname());
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2, surname);
 			preparedStatement.executeUpdate();
 	
-			response.setMessage("Client was added in register");			
+			response.setMessage("Client " + surname + " " + name + " was added in register");			
 			
 		} catch (InterruptedException e) {
 			response.setErrorMessage("Trying to add a client failed");
@@ -88,8 +87,9 @@ public class StoreDAOImpl implements StoreDAO {
 				preparedStatement.setInt(3, equipment.getPrice());
 				preparedStatement.setInt(4, equipment.getQuantity());
 			}
+			
 			preparedStatement.executeUpdate();
-			response.setMessage("Equipment was added in store");
+			response.setMessage("Equipment was added in store equipment");
 			
 		} catch (InterruptedException e) {
 			response.setMessage("Trying to add a equipment failed");
@@ -170,14 +170,99 @@ public class StoreDAOImpl implements StoreDAO {
 		return null;
 	}
 
-
 	@Override
-	public Client getClient(String name, String surname) throws DAOException {
+	public boolean existClientInDatabase(String name, String surname) throws DAOException {
+		boolean existClient = false;
 		
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
 		
-		return null;
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_NAME_SURNAME_FROM_CLIENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getString(1).equalsIgnoreCase(name)) && (resultSet.getString(2).equalsIgnoreCase(surname))){
+					existClient = true;
+					break;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+		
+		return existClient;
 	}
 
+	@Override
+	public int getAmountRentedEquipment(int idClient) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int countRentedEquipment = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_IDEQUIPMENT_IDCLIENT_STATUS_FROM_RENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getInt(2) == idClient) && (resultSet.getBoolean(3) == false)){
+					countRentedEquipment++;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+		
+		return countRentedEquipment;
+	}
+
+	@Override
+	public int getIdClient(String name, String surname) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int idClient = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_ID_NAME_SURNAME_FROM_CLIENT);
+		
+			while(resultSet.next()){
+				if((resultSet.getString(2).equalsIgnoreCase(name)) && (resultSet.getString(3).equalsIgnoreCase(surname))){
+					idClient = resultSet.getInt(1);
+					break;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+		
+		return idClient;
+	}
+	
 	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
 		try { 
 			if (resultSet != null) 
@@ -206,5 +291,5 @@ public class StoreDAOImpl implements StoreDAO {
 				StoreLogger.getLog().error("Connection isn't return to the pool", e);
 			}
 	}
-	
+
 }

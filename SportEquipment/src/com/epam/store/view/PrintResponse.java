@@ -4,7 +4,7 @@ import com.epam.store.bean.ListResponse;
 import com.epam.store.bean.Response;
 import com.epam.store.controller.logging.StoreLogger;
 
-public class PrintAnswer {
+public class PrintResponse {
 	public static void Dispatcher(Response response){
 		
 		if(!response.isStatusError()){

@@ -4,7 +4,6 @@ import com.epam.store.DAO.StoreDAO;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.DAO.factory.DAOFactory;
 import com.epam.store.bean.Response;
-import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
 import com.epam.store.service.StoreService;
 import com.epam.store.service.exception.ServiceException;
@@ -15,39 +14,33 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public Response addNewClient(String name, String surname) throws ServiceException {
 		Response response = null;
-		Client client = null;
 		
 		boolean nameIsValid = ValidationData.currentData(name);
 		boolean surnameIsValid = ValidationData.currentData(surname);
 		
 		if(nameIsValid && surnameIsValid){
 
-			/* Добавить алгорит по проверке client в базе данных и исходя из этого принимать решения регестрировать его
-			 * или "авторизировать" 
-			 */
-			
 			DAOFactory factory = DAOFactory.getInstance();
 			StoreDAO storeDAO = factory.getStoreDAO();
 			
+			boolean existClientInDatabase = false;
+				
 			try {
-				client = storeDAO.getClient(name, surname);
+				existClientInDatabase = storeDAO.existClientInDatabase(name, surname); //Определяем зарегистрирован ли пользователь в базе данных или нет
 			} catch (DAOException e) {
 				throw new ServiceException(e);
 			}
 			
-			//Если client == null значит пользователя в базе данных нет, если client != null пользователь в базе данных ЕСТЬ!
-			if(client == null){
-				
+			if(existClientInDatabase){
+				response = new Response();
+				response.setMessage("Client " + surname + " " + name + " is already registered in the database and doesn't require new registration");
 			}else{
-				
+				try {
+					response = storeDAO.addNewClient(name, surname);
+				} catch (DAOException e) {
+					throw new ServiceException("Client was not added", e);
+				}	
 			}
-			
-			try {
-				response = storeDAO.addNewClient(client);
-			} catch (DAOException e) {
-				throw new ServiceException("Client was not added", e);
-			}
-			
 		}else{
 			response = new Response();
 			response.setErrorMessage("Invalid user data");
