@@ -263,6 +263,67 @@ public class StoreDAOImpl implements StoreDAO {
 		return idClient;
 	}
 	
+	public int getPriceEquipment(String titleEquipment) throws DAOException{
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int priceEquipment = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_TITLE_PRICE_FROM_EQUIPMENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getString(1).equalsIgnoreCase(titleEquipment))){
+					priceEquipment = resultSet.getInt(2);
+					break;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+	
+		return priceEquipment;
+	}
+	
+	@Override
+	public int getQuantityEquipment(String titleEquipment) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int quantityEquipment = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_TITLE_QUANTITY_FROM_EQUIPMENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getString(1).equalsIgnoreCase(titleEquipment))){
+					quantityEquipment = resultSet.getInt(2);
+					break;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+		
+		return quantityEquipment;
+	}
+	
 	private void close(ConnectionPool pool, Connection con, Statement statement, PreparedStatement preparedStatement, ResultSet resultSet){
 		try { 
 			if (resultSet != null) 

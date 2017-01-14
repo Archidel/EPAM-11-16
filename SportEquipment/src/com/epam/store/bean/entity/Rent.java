@@ -8,6 +8,7 @@ public class Rent implements Serializable{
 	private int idClient;
 	private int idRent;
 	private int idEquipment;
+	private int totalPrice;
 	private String dateFrom;
 	private String dateTo;
 	private boolean status;
@@ -102,6 +103,10 @@ public class Rent implements Serializable{
 			return false;
 		}
 		
+		if(totalPrice != rent.totalPrice){
+			return false;
+		}
+		
 		if (status != rent.status){
 			return false;
 		}
@@ -127,8 +132,16 @@ public class Rent implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Rent [idClient=" + idClient + ", idRent=" + idRent + ", idEquipment=" + idEquipment + ", dateFrom="
-				+ dateFrom + ", dateTo=" + dateTo + ", status=" + status + "]";
+		return "Rent [idClient=" + idClient + ", idRent=" + idRent + ", idEquipment=" + idEquipment + ", totalPrice="
+				+ totalPrice + ", dateFrom=" + dateFrom + ", dateTo=" + dateTo + ", status=" + status + "]";
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 }

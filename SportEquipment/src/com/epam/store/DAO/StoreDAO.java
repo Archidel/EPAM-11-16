@@ -9,6 +9,8 @@ public interface StoreDAO {
 	boolean existClientInDatabase(String name, String surname) throws DAOException;
 	int getAmountRentedEquipment(int idClient) throws DAOException;
 	int getIdClient(String name, String surname) throws DAOException;
+	int getPriceEquipment(String titleEquipment) throws DAOException;
+	int getQuantityEquipment(String titleEquipment) throws DAOException;
 	Response addNewEquipment(Equipment equipment) throws DAOException;
 	Response getEquipmentList() throws DAOException;
 	Response getRentList() throws DAOException;

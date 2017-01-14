@@ -34,7 +34,7 @@ public class View {
 		}
 		
 		//*****************************Добавление снаряжения в магазин*****************************//
-		Equipment equipment = new Equipment();
+/*		Equipment equipment = new Equipment();
 		equipment.setTitle("Коньки");
 		equipment.setCategory("Sport equipment");
 		equipment.setPrice(20);
@@ -49,13 +49,13 @@ public class View {
 			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			StoreLogger.getLog().error(e);
-		}
+		}*/
 		
 		//*****************************Регистрация/логинизация клиента который хочет взять снаряжения в аренду*****************************//
 		RegisterClientRequest registerClient = new RegisterClientRequest();
 		registerClient.setCommand("register_client");
-		registerClient.setName("DeD");
-		registerClient.setSurname("MoPo3");
+		registerClient.setName("Blabla");
+		registerClient.setSurname("Blabla");
 		
 		try {
 			response = controller.doAction(registerClient);
@@ -79,8 +79,8 @@ public class View {
 		// Нет высчита total price for rent table(подсчёт дней из внесённой даты)
 		
 		Client clinet = new Client();
-		clinet.setName("DeD");
-		clinet.setSurname("MoPo3");
+		clinet.setName("Blabla");
+		clinet.setSurname("Blabla");
 		
 		Rent rentEquipment = new Rent();
 		rentEquipment.setDateFrom(DateRent(2016, 12, 31));
@@ -114,8 +114,8 @@ public class View {
 			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			StoreLogger.getLog().error(e);
-		}*/	
-		
+		}	
+		*/
 	}
 	
 	private static String DateRent(int year, int month, int day){

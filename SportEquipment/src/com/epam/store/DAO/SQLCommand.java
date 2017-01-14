@@ -12,6 +12,8 @@ public final class SQLCommand {
 	public static final String SELECT_IDCLIENT_STATUS_FROM_RENT = "SELECT c_id, r_status FROM RENT";
 	public static final String SELECT_TITLE_FROM_EQUIPMENT = "SELECT e_title FROM equipment";
 	public static final String SELECT_IDEQUIPMENT_IDCLIENT_STATUS_FROM_RENT = "SELECT e_id, c_id, r_status FROM rent";
+	public static final String SELECT_TITLE_PRICE_FROM_EQUIPMENT = "SELECT e_title, e_price FROM equipment";
+	public static final String SELECT_TITLE_QUANTITY_FROM_EQUIPMENT = "SELECT e_title, e_quantity FROM equipment";
 	//Insert
 	public static final String INSERT_CLIENT = "INSERT INTO client (c_name, c_surname) VALUES (?,?)";
 	public static final String INSERT_EQUIPMENT = "INSERT INTO equipment (e_category, e_title, e_price, e_quantity) VALUE (?,?,?,?)";
