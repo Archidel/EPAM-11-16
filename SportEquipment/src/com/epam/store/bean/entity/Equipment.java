@@ -65,29 +65,47 @@ public class Equipment implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		
+		if (obj == null){
 			return false;
-		if (getClass() == obj.getClass())
+		}
+		
+		if (getClass() == obj.getClass()){
 			return true;
-		Equipment equip = (Equipment) obj;
+		}
+		
+		Equipment equipment = (Equipment) obj;
+		
+		if (id != equipment.id){
+			return false;
+		}
+		
+		if (price != equipment.price){
+			return false;
+		}
+		
+		if (quantity != equipment.quantity){
+			return false;
+		}
+		
 		if (category == null) {
-			if (equip.category != null)
+			if (equipment.category != null)
 				return false;
-		} else if (!category.equals(equip.category))
-			return false;
-		if (id != equip.id)
-			return false;
-		if (price != equip.price)
-			return false;
-		if (quantity != equip.quantity)
-			return false;
+		} else{
+			return category.equals(equipment.category);
+		}
+		
 		if (title == null) {
-			if (equip.title != null)
+			if (equipment.title != null)
 				return false;
-		} else if (!title.equals(equip.title))
-			return false;
+		} else{
+			return title.equals(equipment.title);
+		}
+		
 		return true;
 	}
 

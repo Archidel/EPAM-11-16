@@ -41,6 +41,8 @@ public class Client implements Serializable{
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+		
+	
 
 	@Override
 	public int hashCode() {
@@ -55,27 +57,45 @@ public class Client implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		
+		if (getClass() != obj.getClass()){
 			return false;
-		Client other = (Client) obj;
-		if (id != other.id)
+		}
+		
+		Client client = (Client) obj;
+		
+		if (id != client.id){
 			return false;
+		}
+		
+		if (status != client.status){
+			return false;
+		}
+		
 		if (name == null) {
-			if (other.name != null)
+			if (client.name != null){
 				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (status != other.status)
-			return false;
+			}
+		} else{
+			return name.equals(client.name);
+		}
+		
 		if (surname == null) {
-			if (other.surname != null)
+			if (client.surname != null){
 				return false;
-		} else if (!surname.equals(other.surname))
-			return false;
+			}
+		} else{
+			return surname.equals(client.surname);
+		}
+	
 		return true;
 	}
 

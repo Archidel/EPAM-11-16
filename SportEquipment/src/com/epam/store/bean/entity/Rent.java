@@ -75,31 +75,53 @@ public class Rent implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		
+		if (getClass() != obj.getClass()){
 			return false;
-		Rent other = (Rent) obj;
+		}
+		
+		Rent rent = (Rent) obj;
+		
+		if (idClient != rent.idClient){
+			return false;
+		}
+		
+		if (idEquipment != rent.idEquipment){
+			return false;
+		}
+		
+		if (idRent != rent.idRent){
+			return false;
+		}
+		
+		if (status != rent.status){
+			return false;
+		}
+		
 		if (dateFrom == null) {
-			if (other.dateFrom != null)
+			if (rent.dateFrom != null){
 				return false;
-		} else if (!dateFrom.equals(other.dateFrom))
-			return false;
+			}
+		} else{
+			return dateFrom.equals(rent.dateFrom);
+		}
+		
 		if (dateTo == null) {
-			if (other.dateTo != null)
+			if (rent.dateTo != null){
 				return false;
-		} else if (!dateTo.equals(other.dateTo))
-			return false;
-		if (idClient != other.idClient)
-			return false;
-		if (idEquipment != other.idEquipment)
-			return false;
-		if (idRent != other.idRent)
-			return false;
-		if (status != other.status)
-			return false;
+			}
+		} else{
+			return dateTo.equals(rent.dateTo);
+		}
+		
 		return true;
 	}
 
@@ -109,6 +131,4 @@ public class Rent implements Serializable{
 				+ dateFrom + ", dateTo=" + dateTo + ", status=" + status + "]";
 	}
 
-	
-	
 }
