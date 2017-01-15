@@ -458,3 +458,19 @@
 2017-01-15 01:06:40,231 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
 2017-01-15 01:06:40,232 [main] INFO  logfile - Equipment list was added
 2017-01-15 01:06:40,343 [main] INFO  logfile - Equipment Коньки was returned by Will Smith
+2017-01-15 10:29:51,017 [main] INFO  logfile - Database has been initialized
+2017-01-15 10:29:51,024 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 10:29:51,025 [main] INFO  logfile - Equipment list was added
+2017-01-15 10:29:51,028 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 10:30:29,900 [main] INFO  logfile - Database has been initialized
+2017-01-15 10:30:29,907 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 10:30:29,908 [main] INFO  logfile - Equipment list was added
+2017-01-15 10:30:29,911 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 10:30:36,263 [main] INFO  logfile - Database has been initialized
+2017-01-15 10:30:36,269 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 10:30:36,270 [main] INFO  logfile - Equipment list was added
+2017-01-15 10:30:36,297 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 10:30:41,488 [main] INFO  logfile - Database has been initialized
+2017-01-15 10:30:41,496 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 10:30:41,498 [main] INFO  logfile - Equipment list was added
+2017-01-15 10:30:41,501 [main] INFO  logfile - Client Smith Will has no such equipment Коньки

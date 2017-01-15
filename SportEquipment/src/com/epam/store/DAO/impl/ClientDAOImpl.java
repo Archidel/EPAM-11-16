@@ -61,7 +61,7 @@ public class ClientDAOImpl implements ClientDAO {
 			preparedStatement.setInt(2, equipment.getId());
 			preparedStatement.setString(3, rentEquipment.getDateFrom());
 			preparedStatement.setString(4, rentEquipment.getDateTo());
-			preparedStatement.setInt(5, rentEquipment.getTotalPrice()); //Значение по умолчанию!!! НЕ СДЕЛАН расчёт общей цены на арену (сделать на слое service)
+			preparedStatement.setInt(5, rentEquipment.getTotalPrice());
 			
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
@@ -97,7 +97,13 @@ public class ClientDAOImpl implements ClientDAO {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		PreparedStatement preparedStatement = null;
-		
+		/*
+		 * БАГ
+		 * При взятии клиентом 2х-3х одинаковых снаряжений меняет статус у всех. и бесконечное число инкриментит quntity
+		 * 
+		 * Добавить простой алгоритм 
+		 * Количество арендованных idEquipments by clients в таблице rent
+		 */
 		try {
 			con = pool.take();
 			statement = con.createStatement();
@@ -121,7 +127,6 @@ public class ClientDAOImpl implements ClientDAO {
 		} catch (SQLException e) {
 			response.setErrorMessage("Error database query");
 			response.setStatusError(true);
-			e.printStackTrace();
 			throw new DAOException(e);
 		}finally{
 			close(pool, con, statement, preparedStatement, resultSet);

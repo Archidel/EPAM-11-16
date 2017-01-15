@@ -213,10 +213,10 @@ public class StoreDAOImpl implements StoreDAO {
 		try {
 			con = pool.take();
 			statement = con.createStatement();
-			resultSet = statement.executeQuery(SQLCommand.SELECT_IDEQUIPMENT_IDCLIENT_STATUS_FROM_RENT);
+			resultSet = statement.executeQuery(SQLCommand.SELECT_IDCLIENT_STATUS_FROM_RENT);
 			
 			while(resultSet.next()){
-				if((resultSet.getInt(2) == idClient) && (resultSet.getBoolean(3) == false)){
+				if((resultSet.getInt(1) == idClient) && (resultSet.getBoolean(2) == false)){
 					countRentedEquipment++;
 				}
 			}
@@ -232,6 +232,36 @@ public class StoreDAOImpl implements StoreDAO {
 		return countRentedEquipment;
 	}
 
+	@Override
+	public int getAmountRentedEquipment(int idClient, int idEquipment) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		int countRentedEquipment = 0;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_IDEQUIPMENT_IDCLIENT_STATUS_FROM_RENT);
+			
+			while(resultSet.next()){
+				if((resultSet.getInt(1) == idEquipment) && (resultSet.getInt(2) == idClient) && (resultSet.getBoolean(3) == false)){
+					countRentedEquipment++;
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+		
+		return countRentedEquipment;
+	}
+	
 	@Override
 	public int getIdClient(String name, String surname) throws DAOException {
 		ConnectionPool pool = ConnectionPool.getInstance();
@@ -383,5 +413,7 @@ public class StoreDAOImpl implements StoreDAO {
 				StoreLogger.getLog().error("Connection isn't return to the pool", e);
 			}
 	}
+
+
 
 }

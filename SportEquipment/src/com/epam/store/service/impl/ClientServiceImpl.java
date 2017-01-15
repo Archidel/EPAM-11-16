@@ -52,20 +52,20 @@ public class ClientServiceImpl implements ClientService {
 			
 			if(existClient){
 				int idClient = 0;
-				int countRentedEquipmentByClient = 0;
+				int totalCountRentedEquipment = 0;
 				int quantityEquipment = 0;
 				
 				try {
 					idClient = storeDAO.getIdClient(client.getName(), client.getSurname()); //Определяем id клиента в базе данных
 					client.setId(idClient);
-					countRentedEquipmentByClient = storeDAO.getAmountRentedEquipment(idClient); //Определяем количество взятых им в аренду снаряжений
+					totalCountRentedEquipment = storeDAO.getAmountRentedEquipment(idClient); //Определяем количество взятых им в аренду снаряжений
 					quantityEquipment = storeDAO.getQuantityEquipment(titleEquipment); //Определяем сколько снаряжений(шт.) есть в наличии
 				} catch (DAOException e) {
 					throw new ServiceException(e);
 				}
 				
 				//Проверка на количество взятых в аренду снаряжений клиентом
-				if(countRentedEquipmentByClient >= amountOfEquipment){
+				if(totalCountRentedEquipment >= amountOfEquipment){
 					response = new Response();
 					response.setMessage("The client has rented maximum amount of equipment");
 				}else{
@@ -136,26 +136,31 @@ public class ClientServiceImpl implements ClientService {
 			if(existClient){
 				int idClient = 0;
 				int idEquipment = 0;
+				int countRentedEquipment = 0;
 				
 				try {
 					idClient = storeDAO.getIdClient(client.getName(), client.getSurname()); //Определяем id клиента в базе данных
 					client.setId(idClient);
 					idEquipment = storeDAO.getIdEquipment(titleEquipment);
+					countRentedEquipment = storeDAO.getAmountRentedEquipment(idClient, idEquipment);
 				} catch (DAOException e) {
 					throw new ServiceException(e);
 				}
 			
-				try {
-					response = clientDAO.returnEquipment(returnEquipmentRequest, idEquipment);
-				} catch (DAOException e) {
-					throw new ServiceException(e);
-				}
-				
+				if(countRentedEquipment > 0){
+					try {
+						response = clientDAO.returnEquipment(returnEquipmentRequest, idEquipment);
+					} catch (DAOException e) {
+						throw new ServiceException(e);
+					}
+				}else{
+					response = new Response();
+					response.setMessage("Client " + client.getSurname() + " " + client.getName() + " has no such equipment " + titleEquipment);
+				}	
 			}else{
 				response = new Response();
 				response.setMessage("Client " + client.getSurname() + " " + client.getName() + " is not registered in the database");
 			}
-			
 		}else{
 			response = new Response();
 			response.setErrorMessage("Invalid title equipment or client data");
@@ -184,7 +189,7 @@ public class ClientServiceImpl implements ClientService {
 	    if(period.getYears() != 0) 
 	    	amountdays = period.getYears() * 365;
 	    
-	    return amountdays * amountdays;
+	    return amountdays * price;
 	}
 	
 }
