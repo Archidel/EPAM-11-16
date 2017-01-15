@@ -17,8 +17,12 @@ public class PrintResponse {
 		if(response instanceof ListResponse){
 			listResponse = (ListResponse) response;
 			
-			for(int i = 0; i < listResponse.getList().size(); i++){
-				System.out.println(listResponse.getElementListByIndex(i).toString());
+			if(listResponse.getList().isEmpty()){
+				StoreLogger.getLog().info("List is empty");
+			}else{
+				for(int i = 0; i < listResponse.getList().size(); i++){
+					System.out.println(listResponse.getElementListByIndex(i).toString());
+				}	
 			}
 		}
 		

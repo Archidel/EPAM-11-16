@@ -86,11 +86,11 @@ public class StoreServiceImpl implements StoreService {
 		
 		DAOFactory daoFactory = DAOFactory.getInstance();
 		StoreDAO storeDAO = daoFactory.getStoreDAO();
-		
+
 		try {
 			response = storeDAO.getEquipmentList();
 		} catch (DAOException e) {
-			throw new ServiceException("Equipment list can not be returned", e);
+			throw new ServiceException(e);
 		}
 		
 		return response;

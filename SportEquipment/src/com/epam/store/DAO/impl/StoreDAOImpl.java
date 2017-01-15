@@ -109,7 +109,7 @@ public class StoreDAOImpl implements StoreDAO {
 	@Override
 	public Response getEquipmentList() throws DAOException {
 		ListResponse listResponse = null;
-		ArrayList<Equipment> list = new ArrayList<Equipment>();
+		ArrayList<Equipment> list = null;
 		
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection con = null;
@@ -120,9 +120,8 @@ public class StoreDAOImpl implements StoreDAO {
 			con = pool.take();
 			statement = con.createStatement();
 			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
+			list = new ArrayList<Equipment>();
 			
-			//Надо бы добавить в таблицу Equipment базы данные поле status - удалено ли снарядение или нет.
-			//В замен смотрим количество снаряжения в наличии если 0 то не добавлять этот элемент в список.
 			while(resultSet.next()){
 				if(resultSet.getInt(5) != 0){
 					Equipment equipment = new Equipment();
@@ -136,26 +135,13 @@ public class StoreDAOImpl implements StoreDAO {
 				}
 			}
 			
-			/* Почему бы не добавить эту проверку на слой view printer answer
-			 */
-			if(list.size() == 0){
-				listResponse = new ListResponse();
-				listResponse.setMessage("List is empty");
-			}else{
-				listResponse = new ListResponse();
-				listResponse.setList(list);
-				listResponse.setMessage("Equipment list was added");
-			}
-			
-		} catch (InterruptedException e) {
 			listResponse = new ListResponse();
-			listResponse.setErrorMessage("Equipment list was not added");
-			listResponse.setStatusError(true);
+			listResponse.setMessage("List equipment was added");
+			listResponse.setList(list);
+
+		} catch (InterruptedException e) {
 			throw new DAOException(e);
 		} catch (SQLException e) {
-			listResponse = new ListResponse();
-			listResponse.setErrorMessage("Error database query");
-			listResponse.setStatusError(true);
 			throw new DAOException(e);
 		}finally{
 			close(pool, con, statement, null, resultSet);
