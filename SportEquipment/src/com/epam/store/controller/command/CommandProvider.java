@@ -21,11 +21,11 @@ public final class CommandProvider {
 		list = new HashMap<String, Command>();
 		list.put(CommandName.RENT_EQUIPMENT, new RentEquipment());
 		list.put(CommandName.RETURN_EQUIPMENT, new ReturnEquipment());
-		list.put(CommandName.GET_RENT_LIST, new GetRentList());
 		list.put(CommandName.GET_EQUIPMENT_LIST, new GetEquipmentList());
 		list.put(CommandName.REGISTER_CLIENT, new RegisterClient());
 		list.put(CommandName.INITIALIZATION, new Initialization());
 		list.put(CommandName.ADD_NEW_EQUIPMENT, new AddNewEquipment());
+		list.put(CommandName.GET_RENT_LIST, new GetRentList());
 	}
 
 	public static CommandProvider getInstance() {

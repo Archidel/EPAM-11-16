@@ -501,3 +501,97 @@
 2017-01-15 10:53:11,438 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
 2017-01-15 10:53:11,439 [main] INFO  logfile - List equipment was added
 2017-01-15 10:53:11,442 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:30:07,454 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:30:07,465 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:30:08,226 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:30:08,265 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:30:08,326 [main] INFO  logfile - List equipment was added
+2017-01-15 18:30:08,364 [main] INFO  logfile - List equipment was added
+2017-01-15 18:30:08,603 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:30:08,617 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:34:22,941 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:34:22,954 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:34:22,963 [main] INFO  logfile - List equipment was added
+2017-01-15 18:34:23,044 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:34:23,044 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:34:23,045 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:35:50,955 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:35:50,970 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:35:50,972 [main] INFO  logfile - List equipment was added
+2017-01-15 18:35:51,000 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:35:51,001 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:35:51,001 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:36:57,241 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:36:57,274 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:36:57,276 [main] INFO  logfile - List equipment was added
+2017-01-15 18:36:57,328 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:36:57,329 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:36:57,329 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:37:17,870 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:37:17,877 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:37:17,900 [main] INFO  logfile - List equipment was added
+2017-01-15 18:37:17,933 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:37:17,933 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:37:17,933 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:37:41,930 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:37:41,940 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:37:41,948 [main] INFO  logfile - List equipment was added
+2017-01-15 18:37:41,958 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:37:41,958 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:37:41,958 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:38:15,648 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:38:15,656 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:38:15,657 [main] INFO  logfile - List equipment was added
+2017-01-15 18:38:15,700 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:38:15,700 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:38:15,700 [main] ERROR logfile - com.epam.store.controller.command.exception.CommandNotFoundException
+2017-01-15 18:39:30,120 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:39:30,129 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:39:30,146 [main] INFO  logfile - List equipment was added
+2017-01-15 18:39:30,179 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:39:30,189 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: Invalid value for getInt() - 'Will'
+2017-01-15 18:40:33,851 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:40:33,864 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:40:33,866 [main] INFO  logfile - List equipment was added
+2017-01-15 18:40:33,870 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:40:33,909 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: Invalid value for getInt() - 'Will'
+2017-01-15 18:41:48,476 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:41:48,483 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:41:48,485 [main] INFO  logfile - List equipment was added
+2017-01-15 18:41:48,489 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:41:48,498 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: Invalid value for getInt() - 'Will'
+2017-01-15 18:44:56,535 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:44:56,543 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:44:56,544 [main] INFO  logfile - List equipment was added
+2017-01-15 18:44:56,549 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:44:56,575 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: Invalid value for getInt() - 'Санки'
+2017-01-15 18:44:56,665 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:44:56,673 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:44:56,675 [main] INFO  logfile - List equipment was added
+2017-01-15 18:44:56,689 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:44:56,715 [main] ERROR logfile - com.epam.store.service.exception.ServiceException: com.epam.store.DAO.exception.DAOException: java.sql.SQLException: Invalid value for getInt() - 'Санки'
+2017-01-15 18:45:39,422 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:45:39,431 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:45:39,433 [main] INFO  logfile - List equipment was added
+2017-01-15 18:45:39,436 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:45:39,442 [main] INFO  logfile - Rent list was added
+2017-01-15 18:45:45,775 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:45:45,783 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:45:45,785 [main] INFO  logfile - List equipment was added
+2017-01-15 18:45:45,789 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:45:45,795 [main] INFO  logfile - Rent list was added
+2017-01-15 18:45:45,926 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:45:45,938 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:45:45,941 [main] INFO  logfile - List equipment was added
+2017-01-15 18:45:45,944 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:45:45,965 [main] INFO  logfile - Rent list was added
+2017-01-15 18:45:47,854 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:45:47,861 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:45:47,862 [main] INFO  logfile - List equipment was added
+2017-01-15 18:45:47,865 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:45:47,869 [main] INFO  logfile - Rent list was added
+2017-01-15 18:45:49,232 [main] INFO  logfile - Database has been initialized
+2017-01-15 18:45:49,239 [main] INFO  logfile - Client Blabla Blabla is already registered in the database and doesn't require new registration
+2017-01-15 18:45:49,240 [main] INFO  logfile - List equipment was added
+2017-01-15 18:45:49,243 [main] INFO  logfile - Client Smith Will has no such equipment Коньки
+2017-01-15 18:45:49,247 [main] INFO  logfile - Rent list was added

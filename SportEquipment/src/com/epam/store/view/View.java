@@ -102,17 +102,28 @@ public class View {
 		client_2.setName("Will");
 		client_2.setSurname("Smith");
 		
-		RentEquipmentRequest returnEquipmentRequest = new RentEquipmentRequest();
-		returnEquipmentRequest.setClient(client_2);
-		returnEquipmentRequest.setCommand("return_equipment");
-		returnEquipmentRequest.setTitle("Коньки");
+		RentEquipmentRequest returnEquipmentListRequest = new RentEquipmentRequest();
+		returnEquipmentListRequest.setClient(client_2);
+		returnEquipmentListRequest.setCommand("return_equipment");
+		returnEquipmentListRequest.setTitle("Коньки");
 		
 		try {
-			response = controller.doAction(returnEquipmentRequest);
+			response = controller.doAction(returnEquipmentListRequest);
 			PrintResponse.Dispatcher(response);
 		} catch (CommandNotFoundException e) {
 			StoreLogger.getLog().error(e);
 		}	
+		
+		//*****************************Показать список всех арендованных снаряжений клиентами*****************************// 
+		Request returnRentListRequest = new Request();
+		returnRentListRequest.setCommand("get_rent_list");
+		
+		try {
+			response = controller.doAction(returnRentListRequest);
+			PrintResponse.Dispatcher(response);
+		} catch (CommandNotFoundException e) {
+			StoreLogger.getLog().error(e);
+		}
 		
 	}
 	

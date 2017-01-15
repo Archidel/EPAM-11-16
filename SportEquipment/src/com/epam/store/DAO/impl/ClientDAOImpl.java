@@ -97,13 +97,7 @@ public class ClientDAOImpl implements ClientDAO {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		PreparedStatement preparedStatement = null;
-		/*
-		 * БАГ
-		 * При взятии клиентом 2х-3х одинаковых снаряжений меняет статус у всех. и бесконечное число инкриментит quntity
-		 * 
-		 * Добавить простой алгоритм 
-		 * Количество арендованных idEquipments by clients в таблице rent
-		 */
+
 		try {
 			con = pool.take();
 			statement = con.createStatement();

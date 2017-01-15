@@ -13,7 +13,9 @@ import com.epam.store.DAO.connection.ConnectionPool;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.bean.ListResponse;
 import com.epam.store.bean.Response;
+import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
+import com.epam.store.bean.entity.Rent;
 import com.epam.store.controller.logging.StoreLogger;
 
 public class StoreDAOImpl implements StoreDAO {
@@ -151,11 +153,126 @@ public class StoreDAOImpl implements StoreDAO {
 	}
 
 	@Override
-	public Response getRentList() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Rent> getRentList() throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		Rent rent = null;
+		ArrayList<Rent> list = null;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_RENT);
+			rent = new Rent();
+			list = new ArrayList<Rent>();
+			
+			while(resultSet.next()){
+				if(resultSet.getBoolean(7) == false){
+					rent.setIdRent(resultSet.getInt(1));
+					rent.setIdClient(resultSet.getInt(2));
+					rent.setIdEquipment(resultSet.getInt(3));
+					rent.setDateFrom(resultSet.getString(4));
+					rent.setDateTo(resultSet.getString(5));
+					rent.setTotalPrice(resultSet.getInt(1));	
+				
+					list.add(rent);
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+
+		return list;
 	}
 
+	@Override
+	public ArrayList<Client> getClientRentList(ArrayList<Rent> rentList) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		Client client = null;
+		ArrayList<Client> clientList = null;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_CLIENT);
+			client = new Client();
+			clientList = new ArrayList<Client>();
+			
+			while(resultSet.next()){
+				for(int i = 0; i < rentList.size(); i++){
+					if(rentList.get(i).getIdClient() == resultSet.getInt(1)){
+						client.setId(resultSet.getInt(1));
+						client.setName(resultSet.getString(2));
+						client.setSurname(resultSet.getString(3));
+						client.setStatus(resultSet.getBoolean(4));
+						
+						clientList.add(client);
+					}
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+
+		return clientList;
+	}
+
+	@Override
+	public ArrayList<Equipment> getEquipmentRentList(ArrayList<Rent> rentList) throws DAOException {
+		ConnectionPool pool = ConnectionPool.getInstance();
+		Connection con = null;
+		Statement statement = null;
+		ResultSet resultSet = null;
+		Equipment equipment = null;
+		ArrayList<Equipment> equipmentList = null;
+		
+		try {
+			con = pool.take();
+			statement = con.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_FROM_EQUIPMENT);
+			equipment = new Equipment();
+			equipmentList = new ArrayList<Equipment>();
+			
+			while(resultSet.next()){
+				for(int i = 0; i < rentList.size(); i++){
+					if(rentList.get(i).getIdEquipment() == resultSet.getInt(1)){
+						equipment.setId(resultSet.getInt(1));
+						equipment.setCategory(resultSet.getString(2));
+						equipment.setTitle(resultSet.getString(3));
+						equipment.setPrice(resultSet.getInt(4));
+						equipment.setQuantity(resultSet.getInt(5));
+						
+						equipmentList.add(equipment);
+					}
+				}
+			}
+			
+		} catch (InterruptedException e) {
+			throw new DAOException(e);
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}finally{
+			close(pool, con, statement, null, resultSet);
+		}
+
+		return equipmentList;
+	}
+	
 	@Override
 	public boolean existClientInDatabase(String name, String surname) throws DAOException {
 		boolean existClient = false;
@@ -399,6 +516,8 @@ public class StoreDAOImpl implements StoreDAO {
 				StoreLogger.getLog().error("Connection isn't return to the pool", e);
 			}
 	}
+
+
 
 
 

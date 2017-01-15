@@ -15,14 +15,14 @@ public class Controller {
 		Command command = null;
 		
 		String nameCommand = request.getCommand();
-		
+
 		CommandProvider provider = CommandProvider.getInstance();
 		
 		try {
 			command = provider.getCommand(nameCommand);
 			response = command.execute(request);
 		} catch (CommandNotFoundException e) {
-			StoreLogger.getLog().error(e);
+			e.printStackTrace();
 		} catch (CommandException e) {
 			StoreLogger.getLog().error(e);
 		}

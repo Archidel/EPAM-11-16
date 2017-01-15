@@ -1,10 +1,15 @@
 package com.epam.store.service.impl;
 
+import java.util.ArrayList;
+
 import com.epam.store.DAO.StoreDAO;
 import com.epam.store.DAO.exception.DAOException;
 import com.epam.store.DAO.factory.DAOFactory;
+import com.epam.store.bean.RentListResponse;
 import com.epam.store.bean.Response;
+import com.epam.store.bean.entity.Client;
 import com.epam.store.bean.entity.Equipment;
+import com.epam.store.bean.entity.Rent;
 import com.epam.store.service.StoreService;
 import com.epam.store.service.exception.ServiceException;
 import com.epam.store.service.valiadation.ValidationData;
@@ -98,8 +103,30 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public Response getRentList() throws ServiceException {
-		// TODO Auto-generated method stub
-		return null;
+		RentListResponse rentListResponse = null;
+		
+		ArrayList<Rent> rentList = null;
+		ArrayList<Client> clientList = null;
+		ArrayList<Equipment> equipmentList = null;
+		rentListResponse = new RentListResponse();
+		
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		StoreDAO storeDAO = daoFactory.getStoreDAO();
+
+		try {
+			rentList = storeDAO.getRentList();
+			clientList = storeDAO.getClientRentList(rentList);
+			equipmentList = storeDAO.getEquipmentRentList(rentList);
+ 		} catch (DAOException e) {
+ 			throw new ServiceException(e);
+		}
+		
+		rentListResponse.setRentList(rentList);
+		rentListResponse.setClientList(clientList);
+		rentListResponse.setEquipmentList(equipmentList);
+		rentListResponse.setMessage("Rent list was added");
+	
+		return rentListResponse;
 	}
 
 }
